@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateLogComponent } from './create-log.component';
+import { AdminTripDisplayComponent } from './admin-trip-display.component';
 
-describe('CreateLogComponent', () => {
-  let component: CreateLogComponent;
-  let fixture: ComponentFixture<CreateLogComponent>;
+describe('AdminTripDisplayComponent', () => {
+  let component: AdminTripDisplayComponent;
+  let fixture: ComponentFixture<AdminTripDisplayComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateLogComponent ]
+      declarations: [ AdminTripDisplayComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateLogComponent);
+    fixture = TestBed.createComponent(AdminTripDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
