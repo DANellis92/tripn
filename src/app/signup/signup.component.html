@@ -1,3 +1,23 @@
-<p>
-  signup works!
-</p>
+<div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
+    <div fxFlex='10%' ></div>
+    <div fxFlex='80%' >
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Full Name">
+        <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+          <input matInput placeholder="Email" [formControl]="email" required>
+          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="email.invalid">{{getEmailError()}}</mat-error>
+        </mat-form-field>
+
+      <p class="Display20">test</p>
+      <p class="Header20">Another test</p>
+    </div>
+    <div fxFlex='10%' ></div>
+  </div>
+</div>
+
+

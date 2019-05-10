@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+:root {
+    --green: #24da5e;
+    --lgreen: #4df783;
+    --dgreen: #44bd6a;
+    --white: #fafafa;
+    --lgrey: #b2b2b2;
+    --dgrey: #7d7d7d;
+    --black: #101010;
+    --OpenSans: 'Open Sans', sans-serif;
+    --Roboto: 'Roboto', sans-serif;
+}
+
+.Display20 {
+    font-family: var(--OpenSans);
+    font-size: 3em;
+    font-weight: 400;
+}
+
+.Header30 {
+    font-family: var(--OpenSans);
+    font-size: 2.3em;
+    font-weight: 300;
+}
+
+.Header20 {
+    font-family: var(--OpenSans);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.Header10 {
+    font-family: var(--OpenSans);
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.Body20 {
+    font-family: var(--Roboto);
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.Body10 {
+    font-family: var(--Roboto);
+    font-size: 1em;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.Caption20 {
+    font-family: var(--Roboto);
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+.Placeholder10 {
+    font-family: var(--Roboto);
+    font-size: 1em;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.Button20 {
+    font-family: var(--OpenSans);
+    font-size: 1em;
+    font-weight: 700;
+}
+
