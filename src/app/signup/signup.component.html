@@ -2,19 +2,31 @@
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
     <div fxFlex='10%' ></div>
     <div fxFlex='80%' >
-      <mat-form-field appearance="standard">
-        <input matInput placeholder="Full Name">
-        <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>
-
-      <mat-form-field appearance="standard">
-          <input matInput placeholder="Email" [formControl]="email" required>
+      <div [formGroup]="signup">
+        <mat-form-field appearance="standard">
+          <input matInput placeholder="Full Name" [formControl]="fullname" required>
           <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
-          <mat-error *ngIf="email.invalid">{{getEmailError()}}</mat-error>
+          <mat-error *ngIf="fullname.invalid">{{ getFullnameError() }}</mat-error>
         </mat-form-field>
 
-      <p class="Display20">test</p>
-      <p class="Header20">Another test</p>
+        <mat-form-field appearance="standard">
+          <input matInput placeholder="Username" [formControl]="username" required>
+          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="username.invalid">{{ getUsernameError() }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <input matInput type="email" placeholder="Email" [formControl]="email" required>
+          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="email.invalid">{{ getEmailError() }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <input matInput type="password" placeholder="Password" [formControl]="password" required>
+          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="password.invalid">{{ getPasswordError() }}</mat-error>
+        </mat-form-field>
+      </div>
     </div>
     <div fxFlex='10%' ></div>
   </div>
