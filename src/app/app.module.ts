@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -73,6 +75,16 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('token');
+        },
+        whitelistedDomains: [],
+        blacklistedRoutes: []
+      }
+    }),
     MatCheckboxModule,
     MatCheckboxModule,
     MatButtonModule,
