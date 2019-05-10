@@ -8,7 +8,7 @@ import { TripDisplayComponent } from './trip-display/trip-display.component';
 import { TripCreateComponent } from './trip-create/trip-create.component';
 import { ExpenseDisplayComponent } from './expense-display/expense-display.component';
 import { ExpenseCreateComponent } from './expense-create/expense-create.component';
-import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { AuthGuardService as AuthGuard } from './auth-service/auth-guard.service';
  
 
 const routes: Routes = [
