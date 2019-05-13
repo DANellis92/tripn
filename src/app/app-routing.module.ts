@@ -5,7 +5,7 @@ import { AdminUserDisplayComponent } from './admin-user-display/admin-user-displ
 import { SplashComponent } from './splash/splash.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { TripDisplayComponent } from './trip-display/trip-display.component';
-import { TripCreateComponent } from './trip-create/trip-create.component';
+import { TripCreateComponent, TripCreateDialog } from './trip-create/trip-create.component';
 import { ExpenseDisplayComponent } from './expense-display/expense-display.component';
 import { ExpenseCreateComponent } from './expense-create/expense-create.component';
 import { AuthGuardService as AuthGuard } from './auth-service/auth-guard.service';

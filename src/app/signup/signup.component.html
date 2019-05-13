@@ -5,25 +5,25 @@
       <div [formGroup]="signup">
         <mat-form-field appearance="standard">
           <input matInput placeholder="Full Name" [formControl]="fullname" required>
-          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matPrefix>person</mat-icon>
           <mat-error *ngIf="fullname.invalid">{{ getFullnameError() }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
           <input matInput placeholder="Username" [formControl]="username" required>
-          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matPrefix>local_offer</mat-icon>
           <mat-error *ngIf="username.invalid">{{ getUsernameError() }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
           <input matInput type="email" placeholder="Email" [formControl]="email" required>
-          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matPrefix>mail</mat-icon>
           <mat-error *ngIf="email.invalid">{{ getEmailError() }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
           <input matInput type="password" placeholder="Password" [formControl]="password" required>
-          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matPrefix>https</mat-icon>
           <mat-error *ngIf="password.invalid">{{ getPasswordError() }}</mat-error>
         </mat-form-field>
 

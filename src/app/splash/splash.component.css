@@ -1,0 +1,31 @@
+.headerTitle {
+    color: var(--green);
+    text-transform: uppercase;
+}
+
+.footerButton {
+    width: 100%;
+}
+
+
+.footer-btn {
+    background-color: var(--green);
+    border: 1px solid var(--green);
+    color: var(--white);
+    text-transform: uppercase;
+    width: 100%;
+    height: 3em;
+}
+
+.footer-btn:hover {
+    background-color: var(--white) !important;
+    border: 1px solid var(--green) !important;
+    color: var(--green) !important;
+}
+
+.footer-btn:focus {
+    background-color: var(--white);
+    color: var(--green);
+    outline: none !important;
+}
+

@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { TripDisplayComponent } from './trip-display/trip-display.component';
-import { TripCreateComponent } from './trip-create/trip-create.component';
+import { TripCreateComponent, TripCreateDialog } from './trip-create/trip-create.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminUserDisplayComponent } from './admin-user-display/admin-user-display.component';
 import { AdminTripDisplayComponent } from './admin-trip-display/admin-trip-display.component';
@@ -51,6 +51,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -64,11 +65,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     UserDashboardComponent,
     TripDisplayComponent,
     TripCreateComponent,
+    TripCreateDialog,
     AdminDashboardComponent,
     AdminUserDisplayComponent,
     AdminTripDisplayComponent,
+    TestComponent,
     
   ],
+
   imports: [
     BrowserModule, 
     AppRoutingModule,
@@ -119,6 +123,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatPaginatorModule,
     FlexLayoutModule,
   ],
+
+  entryComponents: [
+    TripCreateComponent, TripCreateDialog
+  ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
