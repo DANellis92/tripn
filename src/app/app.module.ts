@@ -14,7 +14,7 @@ import { ExpenseCreateComponent, ExpenseCreateDialog } from './expense-create/ex
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { TripDisplayComponent } from './trip-display/trip-display.component';
+import { TripDisplayComponent, TripDisplayDialog } from './trip-display/trip-display.component';
 import { TripCreateComponent, TripCreateDialog } from './trip-create/trip-create.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminUserDisplayComponent } from './admin-user-display/admin-user-display.component';
@@ -66,7 +66,8 @@ import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.compone
     LoginComponent,
     SignupComponent,
     UserDashboardComponent,
-    TripDisplayComponent,
+    TripDisplayComponent, 
+    TripDisplayDialog,
     TripCreateComponent,
     TripCreateDialog,
     AdminDashboardComponent,
@@ -136,6 +137,7 @@ import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.compone
     ExpenseCreateComponent, ExpenseCreateDialog,
     EditExpenseComponent, EditExpenseDialog,
     EditTripComponent, EditTripDialog,
+    TripDisplayComponent, TripDisplayDialog,
   ],
 
   providers: [],
