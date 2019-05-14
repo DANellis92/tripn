@@ -10,14 +10,11 @@
   </div>
 </div>
 <div class="DataDisplay">
-  <ul *ngIf="trips">
-    <li *ngFor="let trip of trips">
-      <div>
+  <ul class="TripIterateWrapper" *ngIf="trips">
+    <li class="TripButtonWrapper" *ngFor="let trip of trips">
         <!--Modal TripDisplay call will go here, plug in data [trip]="trip"-->
-      </div>
-    </li>
+    </li>  
   </ul>
-  <!-- ngFor looping goes here for buttons-->
 </div>
 <div class="UIControls">
   <button>Menu</button>

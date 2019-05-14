@@ -51,7 +51,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
 import { EditExpenseComponent, EditExpenseDialog } from './edit-expense/edit-expense.component';
 import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.component';
 
@@ -72,7 +71,6 @@ import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.compone
     AdminDashboardComponent,
     AdminUserDisplayComponent,
     AdminTripDisplayComponent,
-
     EditExpenseComponent, 
     EditExpenseDialog, 
     EditTripComponent, 
