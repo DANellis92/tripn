@@ -1,37 +1,69 @@
 <div>
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
-    <div fxFlex='10%' ></div>
-    <div fxFlex='80%' >
-      <div [formGroup]="signup">
+    <div fxFlex="10%"></div>
+    <div fxFlex="80%">
+      <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
         <mat-form-field appearance="standard">
-          <input matInput placeholder="Full Name" [formControl]="fullname" required>
+          <input
+            matInput
+            name="fullName"
+            type="text"
+            placeholder="Full Name"
+            formControlName="fullName"
+            required
+          />
           <mat-icon matPrefix>person</mat-icon>
-          <mat-error *ngIf="fullname.invalid">{{ getFullnameError() }}</mat-error>
+          <mat-error *ngIf="fullName.invalid">{{
+            getFullnameError()
+          }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
-          <input matInput placeholder="Username" [formControl]="username" required>
+          <input
+            matInput
+            name="username"
+            type="text"
+            placeholder="Username"
+            formControlName="username"
+            required
+          />
           <mat-icon matPrefix>local_offer</mat-icon>
-          <mat-error *ngIf="username.invalid">{{ getUsernameError() }}</mat-error>
+          <mat-error *ngIf="username.invalid">{{
+            getUsernameError()
+          }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
-          <input matInput type="email" placeholder="Email" [formControl]="email" required>
+          <input
+            matInput
+            name="email"
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+            required
+          />
           <mat-icon matPrefix>mail</mat-icon>
           <mat-error *ngIf="email.invalid">{{ getEmailError() }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="standard">
-          <input matInput type="password" placeholder="Password" [formControl]="password" required>
+          <input
+            matInput
+            name="password"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
           <mat-icon matPrefix>https</mat-icon>
-          <mat-error *ngIf="password.invalid">{{ getPasswordError() }}</mat-error>
+          <mat-error *ngIf="password.invalid">{{
+            getPasswordError()
+          }}</mat-error>
         </mat-form-field>
 
-        <button mat-flat-button color="primary">Continue</button>
-      </div>
+        <button mat-flat-button color="primary" type="submit">Continue</button>
+      </form>
     </div>
-    <div fxFlex='10%' ></div>
+    <div fxFlex="10%"></div>
   </div>
 </div>
-
-

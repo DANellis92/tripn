@@ -1,3 +1,38 @@
-<p>
-  login works!
-</p>
+<div>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
+    <div fxFlex="10%"></div>
+    <div fxFlex="80%">
+      <form [formGroup]="login" (ngSubmit)="onLogIn()">
+        <mat-form-field appearance="standard">
+          <input
+            matInput
+            placeholder="Username"
+            formControlName="username"
+            required
+          />
+          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="username.invalid">{{
+            getUsernameError()
+          }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-error *ngIf="password.invalid">{{
+            getPasswordError()
+          }}</mat-error>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit">Continue</button>
+      </form>
+    </div>
+    <div fxFlex="10%"></div>
+  </div>
+</div>

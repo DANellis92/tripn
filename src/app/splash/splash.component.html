@@ -4,14 +4,19 @@
   </header>
 </div>
 
-<app-test></app-test>
-<br/>
-<app-login></app-login>
-<br/>
-<app-signup></app-signup>
-
 <div class="footerButton">
-  <button class="footer-btn Button20">Log in</button> 
-</div>
-  <!-- needs a conditional to swap button text based on currently called component i.e: SignUpComponent -> Login, LogInComponent -> SignUp -->
+  <h1>{{ title === true ? "Log In" : "Sign Up" }}</h1>
 
+  <div *ngIf="title === true; else hidden">
+    <app-login></app-login>
+  </div>
+
+  <div *ngIf="title === false; else hidden">
+    <app-signup></app-signup>
+  </div>
+  <div class="footerButton">
+    <button (click)="changeForm()" class="footer-btn Button20">
+      {{ title === true ? "Sign Up" : "Log In" }}
+    </button>
+  </div>
+</div>
