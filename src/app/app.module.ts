@@ -10,11 +10,17 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SplashComponent } from "./splash/splash.component";
 import { ExpenseDisplayComponent } from "./expense-display/expense-display.component";
-import { ExpenseCreateComponent } from "./expense-create/expense-create.component";
+import {
+  ExpenseCreateComponent,
+  ExpenseCreateDialog
+} from "./expense-create/expense-create.component";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 import { UserDashboardComponent } from "./user-dashboard/user-dashboard.component";
-import { TripDisplayComponent } from "./trip-display/trip-display.component";
+import {
+  TripDisplayComponent,
+  TripDisplayDialog
+} from "./trip-display/trip-display.component";
 import {
   TripCreateComponent,
   TripCreateDialog
@@ -55,21 +61,37 @@ import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { MatPaginatorModule } from "@angular/material/paginator";
 
+import {
+  EditExpenseComponent,
+  EditExpenseDialog
+} from "./edit-expense/edit-expense.component";
+import {
+  EditTripComponent,
+  EditTripDialog
+} from "./edit-trip/edit-trip.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
     ExpenseDisplayComponent,
     ExpenseCreateComponent,
+    ExpenseCreateDialog,
     LoginComponent,
     SignupComponent,
     UserDashboardComponent,
     TripDisplayComponent,
+    TripDisplayDialog,
     TripCreateComponent,
     TripCreateDialog,
     AdminDashboardComponent,
     AdminUserDisplayComponent,
-    AdminTripDisplayComponent
+    AdminTripDisplayComponent,
+
+    EditExpenseComponent,
+    EditExpenseDialog,
+    EditTripComponent,
+    EditTripDialog
   ],
 
   imports: [
@@ -123,7 +145,18 @@ import { MatPaginatorModule } from "@angular/material/paginator";
     FlexLayoutModule
   ],
 
-  entryComponents: [TripCreateComponent, TripCreateDialog],
+  entryComponents: [
+    TripCreateComponent,
+    TripCreateDialog,
+    ExpenseCreateComponent,
+    ExpenseCreateDialog,
+    EditExpenseComponent,
+    EditExpenseDialog,
+    EditTripComponent,
+    EditTripDialog,
+    TripDisplayComponent,
+    TripDisplayDialog
+  ],
 
   providers: [],
   bootstrap: [AppComponent]

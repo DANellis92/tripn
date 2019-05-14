@@ -1,3 +1,28 @@
-<p>
-  user-dashboard works!
-</p>
+<div class="UserProfile">
+  <div class="ProfileIconWrapper">
+    <mat-icon class="ProfileIcon">person</mat-icon>
+  </div>
+  <div class="UserInfo">
+    <h3 class="UserFullName">Full Name</h3>
+  </div>
+  <div class="TripTally">
+    <div class="CompletedTrip"></div>
+  </div>
+</div>
+<div class="DataDisplay">
+  <ul *ngIf="trips">
+    <li *ngFor="let trip of trips">
+      <div>
+        <!--Modal TripDisplay call will go here, plug in data [trip]="trip"-->
+      </div>
+    </li>
+  </ul>
+  <!-- ngFor looping goes here for buttons-->
+</div>
+<div class="UIControls">
+  <button>Menu</button>
+  <button>
+    <app-trip-create></app-trip-create>
+  </button>
+  <button>Settings</button>
+</div>
