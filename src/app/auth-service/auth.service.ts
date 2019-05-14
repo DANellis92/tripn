@@ -32,12 +32,12 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem("token");
+    const sessionToken = sessionStorage.getItem("sessionToken");
 
-    if (token === undefined || token === null) {
+    if (sessionToken === undefined || sessionToken === null) {
       return false;
     } else {
-      return !this.jwtHelper.isTokenExpired(token);
+      return !this.jwtHelper.isTokenExpired(sessionToken);
     }
   }
 }

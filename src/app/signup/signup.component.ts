@@ -15,7 +15,7 @@ import { AuthService } from "../auth-service/auth.service";
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   user: "";
-  @Input("token") token = "";
+  @Input("sessionToken") sessionToken = "";
 
   constructor(public fb: FormBuilder, public User: AuthService) {
     // this.signupForm = fb.group({
@@ -38,9 +38,9 @@ export class SignupComponent implements OnInit {
     // console.log(this.user);
     this.User.signUpAuth(this.signupForm.value).subscribe(
       res => (
-        (this.token = res.token),
-        console.log(this.token),
-        sessionStorage.setItem("token", this.token)
+        (this.sessionToken = res.sessionToken),
+        console.log(this.sessionToken),
+        sessionStorage.setItem("sessionToken", this.sessionToken)
       )
     );
   }

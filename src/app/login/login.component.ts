@@ -15,7 +15,7 @@ import { AuthService } from "../auth-service/auth.service";
 export class LoginComponent implements OnInit {
   login: FormGroup;
   user: "";
-  token = "";
+  sessionToken = "";
 
   constructor(public fb: FormBuilder, public userService: AuthService) {
     this.login = fb.group({
@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
       .logInAuth(this.login.value)
       .subscribe(
         res => (
-          (this.token = res.token), sessionStorage.setItem("token", this.token)
+          (this.sessionToken = res.sessionToken),
+          sessionStorage.setItem("sessionToken", this.sessionToken)
         )
       );
   }
