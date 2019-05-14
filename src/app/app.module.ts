@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SplashComponent } from './splash/splash.component';
 import { ExpenseDisplayComponent } from './expense-display/expense-display.component';
-import { ExpenseCreateComponent } from './expense-create/expense-create.component';
+import { ExpenseCreateComponent, ExpenseCreateDialog } from './expense-create/expense-create.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -52,6 +52,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { TestComponent } from './test/test.component';
+import { EditExpenseComponent, EditExpenseDialog } from './edit-expense/edit-expense.component';
+import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.component';
 
 
 @NgModule({
@@ -59,7 +61,8 @@ import { TestComponent } from './test/test.component';
     AppComponent,
     SplashComponent,
     ExpenseDisplayComponent,
-    ExpenseCreateComponent,
+    ExpenseCreateComponent, 
+    ExpenseCreateDialog,
     LoginComponent,
     SignupComponent,
     UserDashboardComponent,
@@ -70,6 +73,10 @@ import { TestComponent } from './test/test.component';
     AdminUserDisplayComponent,
     AdminTripDisplayComponent,
     TestComponent,
+    EditExpenseComponent, 
+    EditExpenseDialog, 
+    EditTripComponent, 
+    EditTripDialog,
     
   ],
 
@@ -125,7 +132,10 @@ import { TestComponent } from './test/test.component';
   ],
 
   entryComponents: [
-    TripCreateComponent, TripCreateDialog
+    TripCreateComponent, TripCreateDialog,
+    ExpenseCreateComponent, ExpenseCreateDialog,
+    EditExpenseComponent, EditExpenseDialog,
+    EditTripComponent, EditTripDialog,
   ],
 
   providers: [],

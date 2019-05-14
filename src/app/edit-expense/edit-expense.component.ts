@@ -3,46 +3,45 @@ import { MatDialog } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-expense-create',
-  templateUrl: './expense-create.component.html',
-  styleUrls: ['./expense-create.component.css']
+  selector: 'app-edit-expense',
+  templateUrl: './edit-expense.component.html',
+  styleUrls: ['./edit-expense.component.css']
 })
-export class ExpenseCreateComponent implements OnInit {
+export class EditExpenseComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-    openDialog() {
-      const dialogRef = this.dialog.open(ExpenseCreateDialog, {
-        height: '80vh',
-        width: '90vw'
-      });
+  openDialog() {
+    const dialogRef = this.dialog.open(EditExpenseDialog, {
+      height: '80vh',
+      width: '90vw'
+    });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-    }
-
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  
   ngOnInit() {
   }
 }
 
 @Component({
-  selector: 'expense-create-dialog',
-  templateUrl: 'expense-create-dialog.html'
+  selector: 'edit-expense-dialog',
+  templateUrl: 'edit-expense-dialog.html'
 })
-export class ExpenseCreateDialog {
-  expenseCreate: FormGroup
+export class EditExpenseDialog {
+  editExpense: FormGroup
   date = new FormControl('', [Validators.required]);
   description = new FormControl('', [Validators.required]);
   amount = new FormControl('', [Validators.required]);
 
   constructor(public dialog: MatDialog, fb: FormBuilder) {
-    this.expenseCreate = fb.group({
+    this.editExpense = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
     })
   }
-
   getExpensedateError() {
     return this.date.hasError('required') ? 'You must enter a date' : '';
   }
