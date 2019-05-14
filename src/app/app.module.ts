@@ -51,7 +51,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { TestComponent } from './test/test.component';
+
 import { EditExpenseComponent, EditExpenseDialog } from './edit-expense/edit-expense.component';
 import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.component';
 
@@ -72,7 +72,7 @@ import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.compone
     AdminDashboardComponent,
     AdminUserDisplayComponent,
     AdminTripDisplayComponent,
-    TestComponent,
+
     EditExpenseComponent, 
     EditExpenseDialog, 
     EditTripComponent, 
