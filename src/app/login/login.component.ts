@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
@@ -6,6 +6,7 @@ import {
   Validators
 } from "@angular/forms";
 import { AuthService } from "../auth-service/auth.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -15,9 +16,13 @@ import { AuthService } from "../auth-service/auth.service";
 export class LoginComponent implements OnInit {
   login: FormGroup;
   user: "";
-  sessionToken = "";
+  @Input("sessionToken") sessionToken = "";
 
-  constructor(public fb: FormBuilder, public userService: AuthService) {
+  constructor(
+    public fb: FormBuilder,
+    public userService: AuthService,
+    private route: Router
+  ) {
     this.login = fb.group({
       hideRequired: false,
       floatLabel: "auto"
@@ -37,7 +42,8 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => (
           (this.sessionToken = res.sessionToken),
-          sessionStorage.setItem("sessionToken", this.sessionToken)
+          sessionStorage.setItem("sessionToken", this.sessionToken),
+          this.route.navigate(["/dashboard", { selection: "dashboard" }])
         )
       );
   }

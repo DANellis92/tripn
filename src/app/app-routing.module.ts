@@ -1,5 +1,10 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule, CanActivate } from "@angular/router";
+import {
+  Routes,
+  RouterModule,
+  CanActivate,
+  ActivatedRoute
+} from "@angular/router";
 import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.component";
 import { AdminUserDisplayComponent } from "./admin-user-display/admin-user-display.component";
 import { SplashComponent } from "./splash/splash.component";
@@ -20,7 +25,11 @@ const routes: Routes = [
     component: UserDashboardComponent,
     canActivate: [AuthGuard]
   },
-  { path: "admindashboard", component: AdminDashboardComponent },
+  {
+    path: "admindashboard",
+    component: AdminDashboardComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "**", redirectTo: "" }
 ];
 

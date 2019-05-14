@@ -6,6 +6,7 @@ import {
   Validators
 } from "@angular/forms";
 import { AuthService } from "../auth-service/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-signup",
@@ -17,7 +18,11 @@ export class SignupComponent implements OnInit {
   user: "";
   @Input("sessionToken") sessionToken = "";
 
-  constructor(public fb: FormBuilder, public User: AuthService) {
+  constructor(
+    public fb: FormBuilder,
+    public User: AuthService,
+    private route: Router
+  ) {
     // this.signupForm = fb.group({
     //   hideRequired: false,
     //   floatLabel: "auto"
@@ -40,7 +45,8 @@ export class SignupComponent implements OnInit {
       res => (
         (this.sessionToken = res.sessionToken),
         console.log(this.sessionToken),
-        sessionStorage.setItem("sessionToken", this.sessionToken)
+        sessionStorage.setItem("sessionToken", this.sessionToken),
+        this.route.navigate(["/dashboard", { selection: "dashboard" }])
       )
     );
   }
