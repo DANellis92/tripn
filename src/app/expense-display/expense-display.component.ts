@@ -26,7 +26,7 @@ export class ExpenseDisplayComponent implements OnInit {
 }
 @Component({
   selector: 'expense-display-dialog',
-  templateUrl: 'edit-trip-dialog.html',
+  templateUrl: 'expense-display-dialog.html',
 })
 export class ExpenseDisplayDialog {
 
