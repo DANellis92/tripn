@@ -1,10 +1,10 @@
-<div>
+<div class=UserDashboard>
   <div class="UserProfile">
     <div class="ProfileIconWrapper">
       <mat-icon class="ProfileIcon">person</mat-icon>
     </div>
     <div class="UserInfo">
-      <h3 class="UserFullName">Full Name</h3>
+      <h3 class="UserFullName Header30">Full Name</h3>
     </div>
     <div class="TripTally">
       <div class="CompletedTrip"></div>
@@ -18,14 +18,22 @@
     </ul>
   </div>
   <div class="UIControls">
-    <button>Menu</button>
-    <button>
+    <div class="UIControlsWrapper">
+    <button class="MenuButton">
+      <i class="material-icons">menu</i>
+      
+    </button>
+    <button class="MenuButton">
       <app-trip-create></app-trip-create>
     </button>
-    <button>Settings</button>
+    <button class="MenuButton">
+      <i class="material-icons">settings</i>
+    </button>
   </div>
   <div *ngIf="isAdmin === false; else trueAdmin">
     <ng-template #trueAdmin>
       <app-admin-dashboard [isAdmin]="isAdmin"></app-admin-dashboard>
     </ng-template>
   </div>
+  </div>
+</div>
