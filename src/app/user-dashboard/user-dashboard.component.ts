@@ -10,14 +10,17 @@ import { AuthService } from "../auth-service/auth.service";
 export class UserDashboardComponent implements OnInit {
   trips: Object;
   isAdmin: any;
+  userId: any;
+  @Input("sessionToken") sessionToken: string;
 
   constructor(private data: TripService, private user: AuthService) {
     this.isAdmin = sessionStorage.getItem("isAdmin");
     console.log(typeof this.isAdmin);
+    this.userId = sessionStorage.getItem("userId");
   }
 
   ngOnInit() {
-    this.data.getMyTrips().subscribe(data => {
+    this.data.getMyTrips(this.userId, this.sessionToken).subscribe(data => {
       this.trips = data;
       console.log(this.trips);
     });

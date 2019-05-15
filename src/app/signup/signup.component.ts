@@ -50,6 +50,7 @@ export class SignupComponent implements OnInit {
       res => (
         (this.sessionToken = res.sessionToken),
         console.log(this.sessionToken),
+        sessionStorage.setItem("userId", res.user.id),
         sessionStorage.setItem("sessionToken", this.sessionToken),
         this.route.navigate(["/dashboard", { selection: "dashboard" }])
       )

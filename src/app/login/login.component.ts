@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
           (this.sessionToken = res.sessionToken),
           (this.isAdmin = res.user.isAdmin),
           sessionStorage.setItem("sessionToken", this.sessionToken),
+          sessionStorage.setItem("userId", res.user.id),
           sessionStorage.setItem("isAdmin", this.isAdmin),
           console.log("admin setting", this.isAdmin),
           this.route.navigate(["/dashboard"])
