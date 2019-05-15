@@ -2,23 +2,23 @@
 <mat-dialog-content >
     <form [formGroup]="tripCreate" (submit)="onCreateTrip()">
         <mat-form-field appearance="standard">
-            <input matInput placeholder="trip name" formControlName="tripname" required>
+            <input matInput placeholder="trip name" formControlName="tripName" required>
             <div matPrefix>Title</div>
-            <mat-error *ngIf="tripname.invalid">{{ getTripnameError() }}</mat-error>
+            <mat-error *ngIf="tripName.invalid">{{ getTripnameError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="startdate" required>
+            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="startDate" required>
             <div matPrefix>Start</div>
-            <mat-error *ngIf="startdate.invalid">{{ getStartdateError() }}</mat-error>
+            <mat-error *ngIf="startDate.invalid">{{ getStartdateError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="enddate">
+            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="endDate">
             <div matPrefix>End</div>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput placeholder="distance in miles" formControlName="miles" required>
+            <input matInput placeholder="distance in miles" formControlName="distance" required>
             <div matPrefix>Miles</div>
-            <mat-error *ngIf="miles.invalid">{{ getMilesError() }}</mat-error>
+            <mat-error *ngIf="distance.invalid">{{ getMilesError() }}</mat-error>
         </mat-form-field>
         <button mat-flat-button color="primary" cdkFocusInitial type="submit">Submit</button>
         <button mat-flat-button color="primary" mat-dialog-close>Close</button>

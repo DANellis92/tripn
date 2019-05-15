@@ -20,7 +20,6 @@ export class TripService {
   constructor(private http: HttpClient) {}
 
   getMyTrips(userId, sessionToken): Observable<any> {
-    console.log(userId);
     return this.http.get(
       this.dbUrl+"trips/mytrips/", httpOptions
     );

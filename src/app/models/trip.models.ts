@@ -1,6 +1,6 @@
 export interface Trip {
-    tripName: string,
-    startDate: Date,
-    endDate: Date,
-    distance: number
+        tripName: string;
+        startDate: Date;
+        endDate: Date;
+        distance: number;
 }
