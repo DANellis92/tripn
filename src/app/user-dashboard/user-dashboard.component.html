@@ -1,31 +1,33 @@
-<div>
-  <div class="UserProfile">
-    <div class="ProfileIconWrapper">
-      <mat-icon class="ProfileIcon">person</mat-icon>
-    </div>
-    <div class="UserInfo">
-      <h3 class="UserFullName">Full Name</h3>
-    </div>
-    <div class="TripTally">
-      <div class="CompletedTrip"></div>
-    </div>
-  </div>
-  <div class="DataDisplay">
-    <ul class="TripIterateWrapper" *ngIf="trips">
-      <li class="TripButtonWrapper" *ngFor="let trip of trips">
-        <app-trip-display [trip]="trip"></app-trip-display>
-      </li>
-    </ul>
-  </div>
-  <div class="UIControls">
-    <button>Menu</button>
-    <button>
-      <app-trip-create></app-trip-create>
+<div class="UserProfile">
+  <div class="ProfileIconWrapper">
+    <mat-icon class="ProfileIcon">person</mat-icon>
+
+    <button
+      *ngIf="isAdmin === 'true'; else hidden"
+      routerLink="/admindashboard"
+    >
+      Admin
     </button>
-    <button>Settings</button>
   </div>
-  <div *ngIf="isAdmin === false; else trueAdmin">
-    <ng-template #trueAdmin>
-      <app-admin-dashboard [isAdmin]="isAdmin"></app-admin-dashboard>
-    </ng-template>
+  <button>Log Out</button>
+  <div class="UserInfo">
+    <h3 class="UserFullName">Full Name</h3>
   </div>
+  <div class="TripTally">
+    <div class="CompletedTrip"></div>
+  </div>
+</div>
+<div class="DataDisplay">
+  <ul class="TripIterateWrapper" *ngIf="trips">
+    <li class="TripButtonWrapper" *ngFor="let trip of trips">
+      <app-trip-display [trip]="trip"></app-trip-display>
+    </li>
+  </ul>
+</div>
+<div class="UIControls">
+  <button>Menu</button>
+  <button>
+    <app-trip-create></app-trip-create>
+  </button>
+  <button>Settings</button>
+</div>
