@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { TripService } from '../trip.service';
+
 
 @Component({
   selector: 'app-trip-create',
@@ -10,7 +11,11 @@ import { TripService } from '../trip.service';
 })
 export class TripCreateComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+@Input("userId") userId: any;
+@Input("sessionToken") sessionToken: string;
+ 
+
+  constructor(public dialog: MatDialog, public tripService: TripService) { }
 
     openDialog() {
       const dialogRef = this.dialog.open(TripCreateDialog, {
@@ -19,7 +24,7 @@ export class TripCreateComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        console.log("check for closed");
       });
     }
 
@@ -33,14 +38,22 @@ export class TripCreateComponent implements OnInit {
 })
 export class TripCreateDialog {
   tripCreate: FormGroup
-  tripname = new FormControl('', [Validators.required]);
-  startdate = new FormControl('', [Validators.required]);
-  enddate = new FormControl('');
-  miles = new FormControl('', [Validators.required]);
-  trip = [];
+  tripName = new FormControl('', [Validators.required]);
+  startDate = new FormControl('', [Validators.required]);
+  endDate = new FormControl('');
+  distance = new FormControl('', [Validators.required]);
   @Input("sessionToken") sessionToken: string;
+  @Input("userId") userId: any;
+  @Output() refreshed = new EventEmitter<boolean>();
+  didSubmit = false;
 
-  constructor(public dialog: MatDialog, private fb: FormBuilder, private tripService: TripService) { 
+  refreshTrips(submit: boolean) {
+    this.refreshed.emit(submit);
+    this.tripService.getMyTrips(this.userId, this.sessionToken);
+    this.didSubmit = true;
+  }
+
+  constructor(public dialogRef: MatDialogRef<TripCreateDialog>, private fb: FormBuilder, public tripService: TripService) { 
     this.tripCreate = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
@@ -49,28 +62,28 @@ export class TripCreateDialog {
 
   ngOnInit() {
     this.tripCreate = this.fb.group({
-      tripname : new FormControl(null, [Validators.required]),
-      startdate : new FormControl(null, [Validators.required]),
-      enddate : new FormControl(null),
-      miles : new FormControl(null, [Validators.required])
+      tripName : new FormControl(null, [Validators.required]),
+      startDate : new FormControl(null, [Validators.required]),
+      endDate : new FormControl(null),
+      distance : new FormControl(null, [Validators.required])
     })
   }
 
   onCreateTrip() : void {
-    this.tripService.createTrip(this.tripCreate.value, this.sessionToken).subscribe(Trip => this.trip = Trip);
+    this.tripService.createTrip(this.tripCreate.value, this.sessionToken).subscribe(Trip => this.dialogRef.close());
     console.log(this.tripCreate.value);
   }
 
   getTripnameError() {
-    return this.tripname.hasError('required') ? 'You must enter a name' : null;
+    return this.tripName.hasError('required') ? 'You must enter a name' : null;
   }
 
   getStartdateError() {
-    return this.startdate.hasError('required') ? 'You must enter a start date' : null;
+    return this.startDate.hasError('required') ? 'You must enter a start date' : null;
   }
 
   getMilesError() {
-    return this.miles.hasError('required') ? 'You must enter a distance' : null;
+    return this.distance.hasError('required') ? 'You must enter a distance' : null;
   }
 }
 

@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
         console.log(this.sessionToken),
         sessionStorage.setItem("userId", res.user.id),
         sessionStorage.setItem("sessionToken", this.sessionToken),
-        this.route.navigate(["/dashboard", { selection: "dashboard" }])
+        this.route.navigate(["/dashboard"])
       )
     );
   }
