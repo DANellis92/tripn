@@ -12,7 +12,7 @@
 <div class="DataDisplay">
   <ul class="TripIterateWrapper" *ngIf="trips">
     <li class="TripButtonWrapper" *ngFor="let trip of trips">
-        <!--Modal TripDisplay call will go here, plug in data [trip]="trip"-->
+        <app-trip-display [trip]="trip"></app-trip-display>
     </li>  
   </ul>
 </div>

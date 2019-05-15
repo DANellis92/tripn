@@ -37,11 +37,12 @@ export class SignupComponent implements OnInit {
     console.log(this.signupForm.value, "ahhhh");
     // console.log(this.user);
     this.User.signUpAuth(this.signupForm.value).subscribe(
-      res => (
-        (this.sessionToken = res.sessionToken),
-        console.log(this.sessionToken),
-        sessionStorage.setItem("sessionToken", this.sessionToken)
-      )
+      res => {
+        (this.sessionToken = res.sessionToken);
+        console.log(this.sessionToken);
+        sessionStorage.setItem("sessionToken", this.sessionToken);
+        sessionStorage.setItem("userId", res.user.id);
+      }
     );
   }
   fullName = new FormControl("", [Validators.required]);

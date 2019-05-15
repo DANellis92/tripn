@@ -1,26 +1,26 @@
 <h1 mat-dialog-title>Post a Trip</h1>
 <mat-dialog-content >
-    <div [formGroup]="tripCreate">
+    <form [formGroup]="tripCreate" (submit)="onCreateTrip()">
         <mat-form-field appearance="standard">
-            <input matInput placeholder="trip name" [formControl]="tripname" required>
+            <input matInput placeholder="trip name" formControlName="tripname" required>
             <div matPrefix>Title</div>
             <mat-error *ngIf="tripname.invalid">{{ getTripnameError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput type="date" placeholder="mm/dd/yyyy" [formControl]="startdate" required>
+            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="startdate" required>
             <div matPrefix>Start</div>
             <mat-error *ngIf="startdate.invalid">{{ getStartdateError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput type="date" placeholder="mm/dd/yyyy" [formControl]="enddate">
+            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="enddate">
             <div matPrefix>End</div>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput placeholder="distance in miles" [formControl]="miles" required>
+            <input matInput placeholder="distance in miles" formControlName="miles" required>
             <div matPrefix>Miles</div>
             <mat-error *ngIf="miles.invalid">{{ getMilesError() }}</mat-error>
         </mat-form-field>
-        <button mat-flat-button color="primary" cdkFocusInitial>Submit</button>
+        <button mat-flat-button color="primary" cdkFocusInitial type="submit">Submit</button>
         <button mat-flat-button color="primary" mat-dialog-close>Close</button>
-    </div> 
+    </form> 
 </mat-dialog-content>

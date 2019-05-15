@@ -35,10 +35,11 @@ export class LoginComponent implements OnInit {
     this.userService
       .logInAuth(this.login.value)
       .subscribe(
-        res => (
-          (this.sessionToken = res.sessionToken),
-          sessionStorage.setItem("sessionToken", this.sessionToken)
-        )
+        res => {
+          (this.sessionToken = res.sessionToken);
+          sessionStorage.setItem("sessionToken", this.sessionToken);
+          sessionStorage.setItem("userId", res.user.id);
+        }
       );
   }
   username = new FormControl("", [Validators.required]);

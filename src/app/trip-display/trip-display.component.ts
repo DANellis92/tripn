@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-trip-display',
@@ -8,12 +8,15 @@ import { MatDialog } from '@angular/material';
 })
 export class TripDisplayComponent implements OnInit {
 
+  @Input("trip") trip: Object;
+
   constructor(public dialog: MatDialog) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(TripDisplayDialog, {
       height: '80vh',
-      width: '90vw'
+      width: '90vw',
+      data: this.trip
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -22,6 +25,7 @@ export class TripDisplayComponent implements OnInit {
   }
   
   ngOnInit() {
+
   }
 }
 
@@ -30,6 +34,6 @@ export class TripDisplayComponent implements OnInit {
   templateUrl: 'trip-display-dialog.html',
 })
 export class TripDisplayDialog {
-
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
   
   }

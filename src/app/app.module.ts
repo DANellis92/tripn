@@ -88,7 +88,7 @@ import { EditTripComponent, EditTripDialog } from './edit-trip/edit-trip.compone
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {
-          return localStorage.getItem("token");
+          return sessionStorage.getItem("sessionToken");
         },
         whitelistedDomains: [],
         blacklistedRoutes: []
