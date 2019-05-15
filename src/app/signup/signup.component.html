@@ -2,9 +2,9 @@
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
     <div fxFlex="10%"></div>
     <div fxFlex="80%">
-      <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
-        <mat-form-field appearance="standard">
-          <input
+      <form [formGroup]="signupForm" (ngSubmit)="onSignUp()" class="signupFormGroup">
+        <mat-form-field appearance="standard" class="Placeholder10">
+          <input class="inputField"
             matInput
             name="fullName"
             type="text"
@@ -16,9 +16,9 @@
           <mat-error *ngIf="fullName.invalid">{{
             getFullnameError()
           }}</mat-error>
-        </mat-form-field>
+        </mat-form-field >
 
-        <mat-form-field appearance="standard">
+        <mat-form-field appearance="standard" class="Placeholder10">
           <input
             matInput
             name="username"
@@ -33,7 +33,7 @@
           }}</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="standard">
+        <mat-form-field appearance="standard" class="Placeholder10">
           <input
             matInput
             name="email"
@@ -46,7 +46,7 @@
           <mat-error *ngIf="email.invalid">{{ getEmailError() }}</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="standard">
+        <mat-form-field appearance="standard" class="Placeholder10">
           <input
             matInput
             name="password"
@@ -60,8 +60,14 @@
             getPasswordError()
           }}</mat-error>
         </mat-form-field>
-
-        <button mat-flat-button color="primary" type="submit">
+        <br/>
+        <br/>
+        <button class="Button20 formSubmit"
+          mat-flat-button
+          color="primary"
+          type="submit"
+          routerLink="/dashboard"
+        >
           Continue
         </button>
       </form>

@@ -2,21 +2,21 @@
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
     <div fxFlex="10%"></div>
     <div fxFlex="80%">
-      <form [formGroup]="login" (ngSubmit)="onLogIn()">
-        <mat-form-field appearance="standard">
-          <input
+      <form [formGroup]="login" (ngSubmit)="onLogIn()" class="signupFormGroup">
+        <mat-form-field appearance="standard" class="Placeholder10">
+          <input class="inputField"
             matInput
             placeholder="Username"
             formControlName="username"
             required
           />
-          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matPrefix>local_offer</mat-icon>
           <mat-error *ngIf="username.invalid">{{
             getUsernameError()
           }}</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="standard">
+        <mat-form-field appearance="standard" class="Placeholder10">
           <input
             matInput
             type="password"
@@ -24,13 +24,29 @@
             formControlName="password"
             required
           />
-          <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+          <mat-icon matPrefix>https</mat-icon>
           <mat-error *ngIf="password.invalid">{{
             getPasswordError()
           }}</mat-error>
         </mat-form-field>
-
-        <button mat-flat-button color="primary" type="submit">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <button class="Button20 formSubmit"
+          mat-flat-button
+          color="primary"
+          type="submit"
+          routerLink="/dashboard"
+        >
           Continue
         </button>
       </form>

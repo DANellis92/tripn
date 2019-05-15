@@ -69,3 +69,15 @@
     font-weight: 700;
 }
 
+mat-form-field  {
+    
+    width: calc(100% - 2.5rem);
+}
+
+.mat-form-field-appearance-standard .mat-form-field-underline {
+    background-color: var(--green);
+}
+
+.mat-form-field-underline :focus {
+    outline: none;
+}
