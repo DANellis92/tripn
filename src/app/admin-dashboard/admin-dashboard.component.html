@@ -1,3 +1,15 @@
-<p>
-  admin-dashboard works!
-</p>
+<div *ngIf="adminUsers?.length > 0">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title *ngFor="let adminUser of adminUsers">
+          {{ adminUser.username }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <input matInput placeholder="First name" />
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

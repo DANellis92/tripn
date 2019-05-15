@@ -104,7 +104,10 @@ import {
         tokenGetter: function tokenGetter() {
           return sessionStorage.getItem("sessionToken");
         },
-        whitelistedDomains: ["localhost:4200/dashboard"],
+        whitelistedDomains: [
+          "localhost:4200/dashboard",
+          "localhost:4200/admindashboard"
+        ],
         blacklistedRoutes: ["localhost:4200"]
       }
     }),

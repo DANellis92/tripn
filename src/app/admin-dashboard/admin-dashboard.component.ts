@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-
+import { AdminService } from "../admin-service/admin-service.service";
 @Component({
   selector: "app-admin-dashboard",
   templateUrl: "./admin-dashboard.component.html",
@@ -7,7 +7,15 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class AdminDashboardComponent implements OnInit {
   @Input("isAdmin") isAdmin: "";
-  constructor() {}
+  @Input("sessionToken") sessionToken: string;
+  panelOpenState = false;
+  adminUsers = [];
+  constructor(private adminService: AdminService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.adminService.getUsers(this.sessionToken).subscribe(users => {
+      this.adminUsers = users;
+      console.log(this.adminUsers);
+    });
+  }
 }
