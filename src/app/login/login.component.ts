@@ -16,6 +16,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   login: FormGroup;
   user: "";
+  @Input("isAdmin") isAdmin: "";
   @Input("sessionToken") sessionToken = "";
 
   constructor(
@@ -42,13 +43,16 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => (
           (this.sessionToken = res.sessionToken),
+          (this.isAdmin = res.user.isAdmin),
           sessionStorage.setItem("sessionToken", this.sessionToken),
-          this.route.navigate(["/dashboard", { selection: "dashboard" }])
+          sessionStorage.setItem("isAdmin", this.isAdmin),
+          console.log("admin setting", this.isAdmin),
+          this.route.navigate(["/dashboard"])
         )
       );
   }
-  username = new FormControl("", [Validators.required]);
-  password = new FormControl("", [Validators.required]);
+  username = new FormControl(null, [Validators.required]);
+  password = new FormControl(null, [Validators.required]);
 
   getUsernameError() {
     return this.username.hasError("required")
