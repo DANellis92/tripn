@@ -1,10 +1,17 @@
 .headerTitle {
     color: var(--green);
     text-transform: uppercase;
+    text-align: center;
+    margin-top: 20%;
 }
 
 .footerButton {
     width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
 }
 
 

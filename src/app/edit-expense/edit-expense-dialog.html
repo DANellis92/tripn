@@ -2,17 +2,17 @@
 <mat-dialog-content >
     <div [formGroup]="expenseEdit">
         <mat-form-field appearance="standard">
-            <input matInput placeholder="mm/dd/yyyy" [formControl]="expensedate" required>
+            <input matInput placeholder="mm/dd/yyyy" formControlName="expensedate" required>
             <div matPrefix>Date</div>
             <mat-error *ngIf="expensedate.invalid">{{ getExpensedateError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput placeholder="description" [formControl]="description" required>
+            <input matInput placeholder="description" formControlName="description" required>
             <div matPrefix>Description</div>
             <mat-error *ngIf="expensedescription.invalid">{{ getExpensedescriptionError() }}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
-            <input matInput placeholder="amount" [formControl]= "amount" required>
+            <input matInput placeholder="amount" formControlName= "amount" required>
             <div matPrefix>Amount</div>
             <mat-error *ngIf="expenseamount.invalid">{{ getExpenseamountError() }}</mat-error>
         </mat-form-field>

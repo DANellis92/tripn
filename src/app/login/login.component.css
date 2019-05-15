@@ -1,0 +1,15 @@
+mat-icon {
+    color: var(--green);
+}
+.formSubmit {
+    text-transform: uppercase;
+    width: 90%;
+    background-color: var(--green);
+    position: relative;
+}
+.signupFormGroup {
+    position: relative;
+    float: left;
+    left: 1.25rem;
+    
+}
