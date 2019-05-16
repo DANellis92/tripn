@@ -1,19 +1,21 @@
-<div class="Display20">
-  <header class="headerTitle">
-      Trip N
-  </header>
-</div>
 
-  <div *ngIf="title === true; else hidden">
-    <app-login></app-login>
-  </div>
+    <div class="Display20">
+        <header class="headerTitle">
+            Trip N
+        </header>
+      </div>
+      
+        <div *ngIf="title === true; else hidden">
+          <app-login></app-login>
+        </div>
+      
+        <div *ngIf="title === false; else hidden">
+          <app-signup></app-signup>
+        </div>
+        <div class="footerButton">
+          <button (click)="changeForm()" class="footer-btn Button20">
+            {{ title === true ? "Sign Up" : "Log In" }}
+          </button>
+        </div>
 
-  <div *ngIf="title === false; else hidden">
-    <app-signup></app-signup>
-  </div>
-  <div class="footerButton">
-    <button (click)="changeForm()" class="footer-btn Button20">
-      {{ title === true ? "Sign Up" : "Log In" }}
-    </button>
-  </div>
 

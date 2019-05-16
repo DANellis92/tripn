@@ -14,6 +14,11 @@ export class UserDashboardComponent implements OnInit {
   userId: any;
   @Input("sessionToken") sessionToken: string;
 
+  onRefresh() {
+    this.ngOnInit()
+    console.log('received event');
+  }
+
   constructor(
     private data: TripService,
     private user: AuthService,

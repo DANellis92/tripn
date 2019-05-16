@@ -16,47 +16,25 @@
   <div class="DataDisplay">
     <ul class="TripIterateWrapper" *ngIf="trips">
       <li class="TripButtonWrapper" *ngFor="let trip of trips">
-        <app-trip-display [trip]="trip"></app-trip-display>
+        <app-trip-display [trip]="trip" ></app-trip-display>
       </li>
     </ul>
   </div>
+  <div class="placeholderDiv"></div>
+  <br/>
+  <br/>
+  <br/>
   <div class="UIControls">
     <div class="UIControlsWrapper">
     <button class="MenuButton">
       <i class="material-icons">menu</i>
-      
     </button>
     <button class="MenuButton">
-      <app-trip-create></app-trip-create>
+      <app-trip-create (refreshed)="onRefresh()"></app-trip-create>
     </button>
     <button class="MenuButton">
       <i class="material-icons">settings</i>
     </button>
   </div>
-  <button>Log Out</button>
-  <div class="UserInfo">
-    <h3 class="UserFullName">Full Name</h3>
-  </div>
-  <div class="TripTally">
-    <div class="CompletedTrip"></div>
-  </div>
-<<<<<<< HEAD
   </div>
 </div>
-=======
-</div>
-<div class="DataDisplay">
-  <ul class="TripIterateWrapper" *ngIf="trips">
-    <li class="TripButtonWrapper" *ngFor="let trip of trips">
-      <app-trip-display [trip]="trip"></app-trip-display>
-    </li>
-  </ul>
-</div>
-<div class="UIControls">
-  <button>Menu</button>
-  <button>
-    <app-trip-create></app-trip-create>
-  </button>
-  <button>Settings</button>
-</div>
->>>>>>> dan

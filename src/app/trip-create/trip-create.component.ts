@@ -1,11 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators
-} from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { TripService } from "../trip.service";
 
 @Component({
@@ -16,6 +11,12 @@ import { TripService } from "../trip.service";
 export class TripCreateComponent implements OnInit {
   @Input("userId") userId: any;
   @Input("sessionToken") sessionToken: string;
+  @Output() refreshed = new EventEmitter<any>();
+
+  refreshTrips(){
+    this.refreshed.emit('test');
+    console.log('refreshTrips() called')
+  }
 
   constructor(public dialog: MatDialog, public tripService: TripService) {}
 
@@ -27,6 +28,7 @@ export class TripCreateComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("check for closed");
+      this.refreshTrips();
     });
   }
 
@@ -45,14 +47,7 @@ export class TripCreateDialog {
   distance = new FormControl("", [Validators.required]);
   @Input("sessionToken") sessionToken: string;
   @Input("userId") userId: any;
-  @Output() refreshed = new EventEmitter<boolean>();
-  didSubmit = false;
-
-  refreshTrips(submit: boolean) {
-    this.refreshed.emit(submit);
-    this.tripService.getMyTrips(this.userId, this.sessionToken);
-    this.didSubmit = true;
-  }
+ 
 
   constructor(
     public dialogRef: MatDialogRef<TripCreateDialog>,

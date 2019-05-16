@@ -2,11 +2,11 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html, body {
-    height: 100vh;
+    height: 100%;
 }
 
 section {
-    height: 100vh;
+    height: 100%;
 }
 
 :root {
