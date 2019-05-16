@@ -23,7 +23,8 @@ export class TripCreateComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(TripCreateDialog, {
       height: "80vh",
-      width: "90vw"
+      width: "90vw",
+      panelClass:"tripn-no-padding-dialog"
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -37,7 +38,8 @@ export class TripCreateComponent implements OnInit {
 
 @Component({
   selector: "trip-create-dialog",
-  templateUrl: "trip-create-dialog.html"
+  templateUrl: "trip-create-dialog.html",
+  styleUrls: ["./trip-create.component.css"]
 })
 export class TripCreateDialog {
   tripCreate: FormGroup;

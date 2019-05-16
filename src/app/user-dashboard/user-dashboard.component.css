@@ -57,16 +57,15 @@
 .UIControlsWrapper {
   width: 100%;
 }
+
 .MenuButton {
   display: inline-block;
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
   position: relative;
-  /* delete */
-  /* background-color: transparent;
-  border-color: transparent; */
 }
+
 .material-icons {
   color: var(--white);
 }
@@ -74,6 +73,7 @@
 .TripIterateWrapper {
   text-align: center;
   padding-right: 40px;
+  margin-top: 0;
 }
 
 .TripButtonWrapper {

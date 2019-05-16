@@ -3,13 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Trip } from './models/trip.models';
 import { Observable } from 'rxjs';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    "Content-Type": "application/json",
-    Authorization: sessionStorage.getItem("sessionToken")
-  })
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +13,11 @@ export class TripService {
   constructor(private http: HttpClient) {}
 
   getMyTrips(userId, sessionToken): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: sessionStorage.getItem("sessionToken")
+      })}
     return this.http.get(
       this.dbUrl+"trips/mytrips/", httpOptions
     );
@@ -30,13 +28,25 @@ export class TripService {
   }
 
   createTrip(trip: Trip, sessionToken) : Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: sessionStorage.getItem("sessionToken")
+      })}
     return this.http.post<any>(
       this.dbUrl+"trips/create", {trip: trip}, httpOptions
     );
   }
 
-  editTrip() {
-
+  editTrip(trip: Trip, sessionToken, tripId) : Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: sessionStorage.getItem("sessionToken")
+      })}
+      return this.http.put<any>(
+        this.dbUrl+"trips/edit/"+tripId, {trip: trip}, httpOptions
+      );
   }
 
   deleteTrip() {

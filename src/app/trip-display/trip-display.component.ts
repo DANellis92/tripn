@@ -16,7 +16,9 @@ export class TripDisplayComponent implements OnInit {
     const dialogRef = this.dialog.open(TripDisplayDialog, {
       height: '80vh',
       width: '90vw',
-      data: this.trip
+      data: this.trip,
+      panelClass:"tripn-no-padding-dialog"
+
     });
 
     dialogRef.afterClosed().subscribe(result => {

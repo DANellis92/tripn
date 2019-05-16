@@ -1,13 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html, body {
-    height: 100%;
-}
 
-section {
-    height: 100%;
-}
 
 :root {
     --green: #24da5e;
@@ -78,7 +72,6 @@ section {
 }
 
 mat-form-field  {
-    
     width: calc(100% - 2.5rem);
 }
 
@@ -89,3 +82,7 @@ mat-form-field  {
 .mat-form-field-underline :focus {
     outline: none;
 }
+
+.tripn-no-padding-dialog .mat-dialog-container {
+    padding: 0 0 0 0;
+  }
