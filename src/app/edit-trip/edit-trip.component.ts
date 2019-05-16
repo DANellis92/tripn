@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { TripService } from '../trip.service';
 
 @Component({
   selector: 'app-edit-trip',
@@ -9,12 +10,15 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class EditTripComponent implements OnInit {
 
+  @Input("trip") trip: Object;
+
   constructor(public dialog: MatDialog) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(EditTripDialog, {
       height: '80vh',
-      width: '90vw'
+      width: '90vw',
+      data: this.trip
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -23,35 +27,59 @@ export class EditTripComponent implements OnInit {
   }
   ngOnInit() {
   }
-
 }
+
 @Component({
   selector: 'edit-trip-dialog',
   templateUrl: 'edit-trip-dialog.html',
 })
 export class EditTripDialog {
   editTrip: FormGroup
-  tripname = new FormControl('', [Validators.required]);
-  startdate = new FormControl('', [Validators.required]);
-  enddate = new FormControl('');
-  miles = new FormControl('', [Validators.required])
+  tripName = new FormControl('', [Validators.required]);
+  startDate = new FormControl('', [Validators.required]);
+  endDate = new FormControl('');
+  distance = new FormControl('', [Validators.required]);
+  @Input("sessionToken") sessionToken; string;
+  @Input("userId") userId: any;
 
-  constructor(public dialog: MatDialog, fb: FormBuilder) { 
+  constructor(
+    public dialogRef: MatDialogRef<EditTripDialog>, 
+    private fb: FormBuilder,
+    public tripService: TripService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+
+    ) { 
     this.editTrip = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
     });
   }
 
-getTripnameError() {
-  return this.tripname.hasError('required') ? 'You must enter a name' : '';
-}
+  ngOnInit() {
+    this.editTrip = this.fb.group({
+      tripName: new FormControl(this.data.tripName, [Validators.required]),
+      startDate: new FormControl(this.data.startDate, [Validators.required]),
+      endDate: new FormControl(this.data.endDate),
+      distance: new FormControl(this.data.distance, [Validators.required])
+    });
+    console.log(this.data);
+  }
 
-getStartdateError() {
-  return this.startdate.hasError('required') ? 'You must enter a start date' : '';
-}
+  onEditTrip(): void {
+    this.tripService
+      .editTrip(this.editTrip.value, this.sessionToken, this.data.id )
+      .subscribe(Trip => this.dialogRef.close());
+  }
 
-getMilesError() {
-  return this.miles.hasError('required') ? 'You must enter a distance' : '';
-}
+  getTripnameError() {
+    return this.tripName.hasError('required') ? 'You must enter a name' : null;
+  }
+
+  getStartdateError() {
+    return this.startDate.hasError('required') ? 'You must enter a start date' : null;
+  }
+
+  getMilesError() {
+    return this.distance.hasError('required') ? 'You must enter a distance' : null;
+  }
 }
