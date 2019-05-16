@@ -1,87 +1,81 @@
-
-.UserDashboard{
-    margin: -8px -8px -8px -8px !important;
-    background-color: var(--lgreen) !important;
-    height: 100vh;
+.UserDashboard {
+  margin: -8px -8px -8px -8px !important;
+  background-color: var(--lgreen) !important;
+  height: 100vh;
 }
 
-.UserProfile{
-    background-color: var(--green);
-    width: 100%;
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align:center;
+.UserProfile {
+  background-color: var(--green);
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .ProfileIconWrapper {
-    background-color: var(--white);
-    width: 2.5em;
-    height: 2.5em;
-    border-radius: 50%;
-    position:relative;
-    margin-top: 4em;
-    margin-bottom: 0;
-   
-    
+  background-color: var(--white);
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  position: relative;
+  margin-top: 4em;
+  margin-bottom: 0;
 }
 
 .ProfileIcon {
-    margin: auto;
-    margin-top: 20%;
-    color: var(--green) !important;
+  margin: auto;
+  margin-top: 20%;
+  color: var(--green) !important;
 }
 .UserFullName {
-    text-align: center;
-    color: var(--white);
-    margin-top: 0;
+  text-align: center;
+  color: var(--white);
+  margin-top: 0;
 }
 .TripIterateWrapper {
-    margin-top: 0;
-
+  margin-top: 0;
 }
 
 .DataDisplay {
-    background-color: var(--lgreen);
-    height: auto;
-    
+  background-color: var(--lgreen);
+  height: auto;
 }
 
-
 .UIControls {
-    background-color: var(--green);
-    width: 100%;
-    height: 10vh;
-    position:fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: inline-block;
+  background-color: var(--green);
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
 }
 
 .UIControlsWrapper {
-    width: 100%;
-    
-    
+  width: 100%;
 }
 .MenuButton {
-    display: inline-block;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-    position: relative;
-    
+  display: inline-block;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  position: relative;
+  /* delete */
+  /* background-color: transparent;
+  border-color: transparent; */
 }
 .material-icons {
-    color: var(--white)
+  color: var(--white);
 }
 
 .TripIterateWrapper {
-    text-align: center;
-    padding-right: 40px;
+  text-align: center;
+  padding-right: 40px;
 }
 
 .TripButtonWrapper {
-    list-style: none;
+  list-style: none;
 }
