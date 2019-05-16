@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { AdminService } from "../admin-service/admin-service.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-admin-dashboard",
@@ -13,7 +14,7 @@ export class AdminDashboardComponent implements OnInit {
   adminUsers = [];
   userTrips = [];
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService, private route: Router) {}
 
   ngOnInit() {
     this.adminService.getUsers().subscribe(users => {
@@ -41,5 +42,8 @@ export class AdminDashboardComponent implements OnInit {
     console.log(id);
     this.adminService.deleteUser(id).subscribe();
     this.getUsers();
+  }
+  backButton() {
+    this.route.navigate(["/dashboard"]);
   }
 }
