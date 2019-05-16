@@ -1,9 +1,12 @@
-<div class=UserDashboard>
+<div class="UserDashboard">
   <div class="UserProfile">
     <div class="ProfileIconWrapper">
       <mat-icon class="ProfileIcon">person</mat-icon>
     </div>
-    <button *ngIf="isAdmin === 'true'; else hidden" routerLink="/admindashboard">
+    <button
+      *ngIf="isAdmin === 'true'; else hidden"
+      routerLink="/admindashboard"
+    >
       Admin
     </button>
     <div class="UserInfo">
@@ -16,25 +19,25 @@
   <div class="DataDisplay">
     <ul class="TripIterateWrapper" *ngIf="trips">
       <li class="TripButtonWrapper" *ngFor="let trip of trips">
-        <app-trip-display [trip]="trip" ></app-trip-display>
+        <app-trip-display [trip]="trip"></app-trip-display>
       </li>
     </ul>
   </div>
   <div class="placeholderDiv"></div>
-  <br/>
-  <br/>
-  <br/>
+  <br />
+  <br />
+  <br />
   <div class="UIControls">
     <div class="UIControlsWrapper">
-    <button class="MenuButton">
-      <i class="material-icons">menu</i>
-    </button>
-    <button class="MenuButton">
-      <app-trip-create (refreshed)="onRefresh()"></app-trip-create>
-    </button>
-    <button class="MenuButton">
-      <i class="material-icons">settings</i>
-    </button>
-  </div>
+      <button class="MenuButton">
+        <i class="material-icons">menu</i>
+      </button>
+      <button class="MenuButton">
+        <app-trip-create (refreshed)="onRefresh()"></app-trip-create>
+      </button>
+      <button class="MenuButton">
+        <i class="material-icons">settings</i>
+      </button>
+    </div>
   </div>
 </div>

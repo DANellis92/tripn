@@ -1,15 +1,36 @@
+<h1>Admin Dashboard</h1>
 <div *ngIf="adminUsers?.length > 0">
   <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel *ngFor="let adminUser of adminUsers" hideToggle>
       <mat-expansion-panel-header>
-        <mat-panel-title *ngFor="let adminUser of adminUsers">
+        <mat-panel-title (click)="getThisUsersTrips()">
           {{ adminUser.username }}
         </mat-panel-title>
+
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="deleteThisUser(adminUser.id)"
+        >
+          <mat-icon>delete_forever</mat-icon>
+        </button>
       </mat-expansion-panel-header>
 
-      <mat-form-field>
-        <input matInput placeholder="First name" />
-      </mat-form-field>
+      <mat-list *ngFor="let trip of userTrips">
+        <mat-list-item *ngIf="adminUser.id == trip.userId; else void">
+          {{ trip.tripName }}
+
+          <button
+            mat-icon-button
+            matTooltip="Double Click to Delete!"
+            aria-label="Button that displays a tooltip when focused or hovered over"
+            color="warn"
+            (click)="deleteATrip(trip.id, trip.userId)"
+          >
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
