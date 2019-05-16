@@ -14,7 +14,8 @@ export class ExpenseCreateComponent implements OnInit {
     openDialog() {
       const dialogRef = this.dialog.open(ExpenseCreateDialog, {
         height: '80vh',
-        width: '90vw'
+        width: '90vw',
+        panelClass:"tripn-no-padding-dialog"
       });
 
       dialogRef.afterClosed().subscribe(result => {

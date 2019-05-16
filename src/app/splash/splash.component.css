@@ -1,4 +1,6 @@
-
+.SplashWrapper {
+    overflow: hidden;
+}
 .headerTitle {
     color: var(--green);
     text-transform: uppercase;
@@ -12,6 +14,8 @@
     left: 0;
     right: 0;
     bottom: 0;
+   
+
 
 }
 

@@ -37,11 +37,6 @@
     color: var(--white);
     margin-top: 0;
 }
-.TripIterateWrapper {
-    margin-top: 0;
-
-}
-
 .DataDisplay {
     background-color: var(--lgreen);
     height: auto;
@@ -80,6 +75,7 @@
 .TripIterateWrapper {
     text-align: center;
     padding-right: 40px;
+    margin-top: 0;
 }
 
 .TripButtonWrapper {

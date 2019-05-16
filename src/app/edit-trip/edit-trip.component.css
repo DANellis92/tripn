@@ -1,0 +1,85 @@
+.CreateWrapper {
+    
+    background-color: var(--lgreen);
+}
+
+.HeaderWrapper {
+    background-color: var(--green);
+    height: 19.25vh;
+    display: inline-block;
+    width: 100%;
+}
+.EatADick {
+    margin-left: 85%;
+    margin-top: 0.5em;
+
+}
+.CloseButtonWrapper {
+    background-color: var(--green);
+    width: 100%;
+    
+} 
+.CloseButton {
+    color: var(--white);
+}
+.DialogContent {
+    margin: 0 24px;
+    height: 100%;
+}
+
+.PostTrip {
+    text-align: center;
+    color: var(--white);
+    padding-bottom: 1em;
+}
+
+.TitleBox {
+    
+    background-color: var(--green);
+    height: 2em;
+    width: 4em;
+    text-align:center;
+    color: var(--white);
+    text-transform: uppercase;
+}
+.ParentField {
+    width: 100%;
+}
+
+.InputField {
+    background-color: var(--white);
+    height: 2em;
+    padding: 0;
+    text-align: center;
+    
+}
+
+#TitleID {
+    
+    font-family: var(--OpenSans) !important;
+    font-size: 1em !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    line-height: 2;
+    
+}
+
+
+
+
+
+
+.CreateFooterButton {
+    width: 100%;
+    position: relative;
+    background-color: var(--green);
+    color: var(--white);
+    text-transform: uppercase;
+}
+::ng-deep .mat-form-field-infix {
+    padding: 0 !important;
+}
+
+::ng-deep .mat-form-field-flex {
+    align-items:flex-end !important;
+}
