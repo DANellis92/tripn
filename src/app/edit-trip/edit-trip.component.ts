@@ -33,6 +33,7 @@ export class EditTripComponent implements OnInit {
 @Component({
   selector: 'edit-trip-dialog',
   templateUrl: 'edit-trip-dialog.html',
+  styleUrls: ['./edit-trip.component.css']
 })
 export class EditTripDialog {
   editTrip: FormGroup
