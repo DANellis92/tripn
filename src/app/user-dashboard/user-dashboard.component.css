@@ -1,11 +1,11 @@
 
-.UserDashboard{
+.UserDashboard {
     margin: -8px -8px -8px -8px !important;
     background-color: var(--lgreen) !important;
     height: 100vh;
 }
 
-.UserProfile{
+.UserProfile {
     background-color: var(--green);
     width: 100%;
     height: 40vh;
@@ -23,8 +23,6 @@
     position:relative;
     margin-top: 4em;
     margin-bottom: 0;
-   
-    
 }
 
 .ProfileIcon {
@@ -40,9 +38,7 @@
 .DataDisplay {
     background-color: var(--lgreen);
     height: auto;
-    
 }
-
 
 .UIControls {
     background-color: var(--green);
@@ -57,17 +53,16 @@
 
 .UIControlsWrapper {
     width: 100%;
-    
-    
 }
+
 .MenuButton {
     display: inline-block;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
     position: relative;
-    
 }
+
 .material-icons {
     color: var(--white)
 }

@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Edit a Trip</h1>
+<mat-dialog-content >
+    <form [formGroup]="editTrip" (submit)="onEditTrip(id)">
+        <mat-form-field appearance="standard">
+            <input matInput placeholder="trip name" formControlName="tripName" required>
+            <div matPrefix>Title</div>
+            <mat-error *ngIf="tripName.invalid">{{ getTripnameError() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="startDate" required>
+            <div matPrefix>Start</div>
+            <mat-error *ngIf="startDate.invalid">{{ getStartdateError() }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input matInput type="date" placeholder="mm/dd/yyyy" formControlName="endDate">
+            <div matPrefix>End</div>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input matInput placeholder="distance in miles" formControlName="distance" required>
+            <div matPrefix>Miles</div>
+            <mat-error *ngIf="distance.invalid">{{ getMilesError() }}</mat-error>
+        </mat-form-field>
+        <button mat-flat-button color="primary" cdkFocusInitial type="submit">Update</button>
+        <button mat-flat-button color="primary" mat-dialog-close>Close</button>
+    </form> 
+</mat-dialog-content>
