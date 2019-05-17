@@ -49,7 +49,7 @@ export class SignupComponent implements OnInit {
     this.User.signUpAuth(this.signupForm.value).subscribe(
       res => (
         (this.sessionToken = res.sessionToken),
-        console.log(this.sessionToken),
+        sessionStorage.setItem("fullName", res.user.fullName),
         sessionStorage.setItem("userId", res.user.id),
         sessionStorage.setItem("sessionToken", this.sessionToken),
         this.route.navigate(["/dashboard"])

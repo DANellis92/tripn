@@ -1,43 +1,59 @@
-<div class="UserDashboard">
-  <div class="UserProfile">
-    <div class="ProfileIconWrapper">
-      <mat-icon class="ProfileIcon">person</mat-icon>
-    </div>
-    <button
-      *ngIf="isAdmin === 'true'; else hidden"
-      routerLink="/admindashboard"
-    >
-      Admin
+<mat-sidenav-container class="example-container" (backdropClick)="close()">
+  <mat-sidenav
+    #sidenav
+    class="side-nav-drawer"
+    (keydown.escape)="close()"
+    disableClose
+  >
+    <button class="nav-close" mat-icon-button (click)="close()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-    <div class="UserInfo">
-      <h3 class="UserFullName Header30">Full Name</h3>
+
+    <button>GET OUTTA HERE</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="UserDashboard">
+      <div class="UserProfile">
+        <div class="ProfileIconWrapper">
+          <mat-icon class="ProfileIcon">person</mat-icon>
+        </div>
+        <button
+          *ngIf="isAdmin === 'true'; else hidden"
+          routerLink="/admindashboard"
+        >
+          Admin
+        </button>
+        <div class="UserInfo">
+          <h3 class="UserFullName Header30">{{ this.fullName }}</h3>
+        </div>
+        <div class="TripTally">
+          <div class="CompletedTrip"></div>
+        </div>
+      </div>
+      <div class="DataDisplay">
+        <ul class="TripIterateWrapper" *ngIf="trips">
+          <li class="TripButtonWrapper" *ngFor="let trip of trips">
+            <app-trip-display [trip]="trip"></app-trip-display>
+          </li>
+        </ul>
+      </div>
+      <div class="placeholderDiv"></div>
+      <br />
+      <br />
+      <br />
+      <div class="UIControls">
+        <div class="UIControlsWrapper">
+          <button class="MenuButton" (click)="sidenav.open()">
+            <i class="material-icons">menu</i>
+          </button>
+          <button class="MenuButton">
+            <app-trip-create (refreshed)="onRefresh()"></app-trip-create>
+          </button>
+          <button class="MenuButton">
+            <i class="material-icons">settings</i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="TripTally">
-      <div class="CompletedTrip"></div>
-    </div>
-  </div>
-  <div class="DataDisplay">
-    <ul class="TripIterateWrapper" *ngIf="trips">
-      <li class="TripButtonWrapper" *ngFor="let trip of trips">
-        <app-trip-display [trip]="trip"></app-trip-display>
-      </li>
-    </ul>
-  </div>
-  <div class="placeholderDiv"></div>
-  <br />
-  <br />
-  <br />
-  <div class="UIControls">
-    <div class="UIControlsWrapper">
-      <button class="MenuButton">
-        <i class="material-icons">menu</i>
-      </button>
-      <button class="MenuButton">
-        <app-trip-create (refreshed)="onRefresh()"></app-trip-create>
-      </button>
-      <button class="MenuButton">
-        <i class="material-icons">settings</i>
-      </button>
-    </div>
-  </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

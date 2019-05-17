@@ -1,15 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Trip } from './models/trip.models';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Trip } from "./models/trip.models";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-
 export class TripService {
-  private dbUrl = 'https://tripn-server.herokuapp.com/';
-  
+  private dbUrl = "https://tripn-server.herokuapp.com/";
+
   constructor(private http: HttpClient) {}
 
   getMyTrips(userId, sessionToken): Observable<any> {
@@ -17,39 +16,51 @@ export class TripService {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("sessionToken")
-      })}
-    return this.http.get(
-      this.dbUrl+"trips/mytrips/", httpOptions
-    );
+      })
+    };
+    return this.http.get(this.dbUrl + "trips/mytrips/", httpOptions);
   }
 
-  getSingleTrip() {
+  getSingleTrip() {}
 
-  }
-
-  createTrip(trip: Trip, sessionToken) : Observable<any> {
+  createTrip(trip: Trip, sessionToken): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("sessionToken")
-      })}
+      })
+    };
     return this.http.post<any>(
-      this.dbUrl+"trips/create", {trip: trip}, httpOptions
+      this.dbUrl + "trips/create",
+      { trip: trip },
+      httpOptions
     );
   }
 
-  editTrip(trip: Trip, sessionToken, tripId) : Observable<any> {
+  editTrip(trip: Trip, sessionToken, tripId): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("sessionToken")
-      })}
-      return this.http.put<any>(
-        this.dbUrl+"trips/edit/"+tripId, {trip: trip}, httpOptions
-      );
+      })
+    };
+    return this.http.put<any>(
+      this.dbUrl + "trips/edit/" + tripId,
+      { trip: trip },
+      httpOptions
+    );
   }
 
-  deleteTrip() {
-
+  deleteTrip(id): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: sessionStorage.getItem("sessionToken")
+      })
+    };
+    return this.http.delete(
+      "https://tripn-server.herokuapp.com/trips/deletetrip/" + id,
+      httpOptions
+    );
   }
 }

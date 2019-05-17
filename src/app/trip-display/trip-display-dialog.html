@@ -1,12 +1,14 @@
 <div mat-dialog-title>
   <button mat-dialog-close>
-      <i class="material-icons">close</i>
+    <i class="material-icons">close</i>
   </button>
-  
+
   <h1>{{ data.tripName }}</h1>
   <h4>{{ data.startDate }}</h4>
   <p>to</p>
-  <h4>{{ data.endDate }}</h4>
+  <h4>
+    {{ data.endDate || "In Progress" }}
+  </h4>
 </div>
 <mat-dialog-content>
   <div class="DistanceDisplay">
@@ -16,7 +18,7 @@
 <mat-dialog-actions>
   <app-expense-display></app-expense-display>
   <app-edit-trip [trip]="data"></app-edit-trip>
-  <button>
+  <button (click)="deleteTrip(data)">
     <i class="material-icons">
       delete
     </i>
