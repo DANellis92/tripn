@@ -9,7 +9,10 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SplashComponent } from "./splash/splash.component";
-import { ExpenseDisplayComponent } from "./expense-display/expense-display.component";
+import { 
+  ExpenseDisplayComponent,
+  ExpenseDisplayDialog 
+} from "./expense-display/expense-display.component";
 import {
   ExpenseCreateComponent,
   ExpenseCreateDialog
@@ -76,6 +79,7 @@ import {
     ExpenseDisplayComponent,
     ExpenseCreateComponent,
     ExpenseCreateDialog,
+    ExpenseDisplayDialog,
     LoginComponent,
     SignupComponent,
     UserDashboardComponent,
@@ -156,7 +160,9 @@ import {
     EditTripComponent,
     EditTripDialog,
     TripDisplayComponent,
-    TripDisplayDialog
+    TripDisplayDialog,
+    ExpenseDisplayComponent,
+    ExpenseDisplayDialog
   ],
 
   providers: [],

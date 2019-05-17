@@ -15,6 +15,7 @@ export class UserDashboardComponent implements OnInit {
   isAdmin: any;
   userId: any;
   fullName: any;
+  userInfo: any;
   @Input("sessionToken") sessionToken: string;
 
   onRefresh() {
@@ -36,7 +37,7 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit() {
     this.data.getMyTrips(this.userId, this.sessionToken).subscribe(data => {
       this.trips = data;
-
+      this.trips.reverse();
       console.log(this.trips);
     });
   }

@@ -1,13 +1,18 @@
 <div mat-dialog-title> 
+    <button mat-dialog-close>
+        <i class="material-icons">close</i>
+    </button>
+
     <h1>Trip Name</h1>
     <h3>Expenses</h3>
     <h4>Total Amount</h4>
 </div>
 <mat-dialog-content>
-    
-    
+    <div class="ExpenseDisplay">
+        Will Iterate over Expenses
+    </div>
 </mat-dialog-content>
 
-<mat-dialog-action>
+<mat-dialog-actions>
     <app-expense-create></app-expense-create>
-</mat-dialog-action>
+</mat-dialog-actions>
