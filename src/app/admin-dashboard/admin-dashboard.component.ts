@@ -25,6 +25,7 @@ export class AdminDashboardComponent implements OnInit {
   getThisUsersTrips() {
     this.adminService.getTripsbyUser().subscribe(userTrips => {
       this.userTrips = userTrips;
+      this.userTrips.reverse()
       console.log(this.userTrips, this.adminUsers);
     });
   }

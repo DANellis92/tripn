@@ -63,18 +63,26 @@
     line-height: 2;
     
 }
-
-
-
-
-
-
 .CreateFooterButton {
     width: 100%;
     position: relative;
     background-color: var(--green);
     color: var(--white);
     text-transform: uppercase;
+}
+.RoundButtonBorder {
+    position:relative;
+    background-color: var(--white);
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    bottom: 1em;
+
+}
+.CreateTripButton {
+    position:relative;
+    color: var(--green);
+    top: .3em;
 }
 ::ng-deep .mat-form-field-infix {
     padding: 0 !important;

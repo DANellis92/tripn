@@ -29,8 +29,9 @@ export class TripDisplayComponent implements OnInit {
 }
 
 @Component({
-  selector: "trip-display-dialog",
-  templateUrl: "trip-display-dialog.html"
+  selector: 'trip-display-dialog',
+  templateUrl: 'trip-display-dialog.html',
+  styleUrls: ['./trip-display.component.css']
 })
 export class TripDisplayDialog {
   constructor(
