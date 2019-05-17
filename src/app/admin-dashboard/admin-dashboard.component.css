@@ -1,0 +1,32 @@
+.BigDaddyWrapper {
+    margin: -8px -8px -8px -8px !important;
+    background-color: var(--lgreen);
+    height: 100vh;
+}
+.AdminClose {
+    margin-left: 85%;
+    margin-top: 0.5em;
+}
+.CloseButton {
+    color: var(--white);
+}
+.DashTitleWrapper {
+    background-color: var(--green);
+    width: 100%;
+    height: 15vh;
+    padding-bottom: 3em;
+   
+}
+.DashTitle {
+    color: var(--white);
+    text-align: center;
+    margin: 0 !important;
+    padding-top: .65em;
+
+}
+.Accordion {
+    color: var(--green);
+    text-transform: uppercase;
+    padding-top: 0.6em;
+    
+}

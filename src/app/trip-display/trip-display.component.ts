@@ -34,6 +34,7 @@ export class TripDisplayComponent implements OnInit {
 @Component({
   selector: 'trip-display-dialog',
   templateUrl: 'trip-display-dialog.html',
+  styleUrls: ['./trip-display.component.css']
 })
 export class TripDisplayDialog {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any){}

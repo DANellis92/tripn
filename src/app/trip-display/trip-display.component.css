@@ -18,5 +18,102 @@
 
 .TripDisplayButton:focus {
     outline: none
+}   
 
+/* ABOVE IS FOR MODAL CALL */
+.DisplayWrapper {
+    background-color: var(--lgreen);
+    height: 100%;
+    position: relative;
+}
+.TripClose {
+    margin-left: 85%;
+    margin-top: 0.5em;
+}
+.CloseButton {
+    color: var(--white);
+}
+.DisplayTitleWrapper {
+    background-color: var(--green);
+}
+.TripName {
+    color: var(--white);
+    text-align: center;
+    text-transform: uppercase;
+}
+.StartDate {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 0;
+}
+.ToClass {
+    margin-top: 0;
+}
+.PClass {
+    margin-top: 0;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 0;
+}
+.EndWrapper {
+    margin-top: 0;
+}
+.EndDate {
+    margin-top: 0;
+    text-align: center;
+    color: var(--white);
+    padding-bottom: 1em;
+}
+.DropItLow {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    /* border: 1px solid purple; */
+}
+.DistanceWrapper {
+    height: 30%;
+    margin: 0 24px;
+}
+.DistanceDisplay1 {
+    background-color: var(--dgrey);
+    width: 9em;
+    height: 9em;
+    border-radius: 50%;
+    margin: auto;
+    
+}
+.DistanceDisplay2 {
+    position: relative;
+    background-color: var(--green);
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    margin: auto;
+    top: 0.5em;
+}
+.ActualDistance {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    top: 1.8em;
+    color: var(--white);
+}
+.DistanceLabel {
+    margin-top: 0;
+}
+.DeleteCircle {
+    border-radius: 50%;
+    background-color: var(--green);
+    width: 3em;
+    height: 3em;
+}
+.DeleteTrip {
+
+    position: relative;
+    margin:auto;
+    color: var(--white);
+    text-align: center;
+    top: .35em;
+    left: .18em;
 }
