@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ExpenseService } from '../expense.service';
 
 @Component({
   selector: 'app-expense-create',
@@ -8,8 +9,10 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./expense-create.component.css']
 })
 export class ExpenseCreateComponent implements OnInit {
+  @Input("userId") userId: any;
+  @Input("sessionToken") sessionToken: string;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public expenseService: ExpenseService) {}
 
     openDialog() {
       const dialogRef = this.dialog.open(ExpenseCreateDialog, {
@@ -29,19 +32,41 @@ export class ExpenseCreateComponent implements OnInit {
 
 @Component({
   selector: 'expense-create-dialog',
-  templateUrl: 'expense-create-dialog.html'
+  templateUrl: 'expense-create-dialog.html',
 })
 export class ExpenseCreateDialog {
   expenseCreate: FormGroup
   date = new FormControl('', [Validators.required]);
   description = new FormControl('', [Validators.required]);
   amount = new FormControl('', [Validators.required]);
+  @Input("sessionToken") sessionToken: string;
+  @Input("userId") userId: any;
+  @Input("tripId") tripId: any;
 
-  constructor(public dialog: MatDialog, fb: FormBuilder) {
+  constructor(
+    public dialogRef: MatDialogRef<ExpenseCreateDialog>, 
+    private fb: FormBuilder,
+    public expenseService: ExpenseService
+  ) {
     this.expenseCreate = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
-    })
+    });
+  }
+
+  ngOnInit() {
+    this.expenseCreate = this.fb.group({
+      date: new FormControl(null, [Validators.required]),
+      description: new FormControl(null, [Validators.required]),
+      amount: new FormControl(null, [Validators.required]),
+    });
+  }
+
+  onCreateExpense(): void {
+    this.expenseService
+      .createExpense(this.expenseCreate.value, this.sessionToken)
+      .subscribe(Expense => this.dialogRef.close());
+
   }
 
   getExpensedateError() {

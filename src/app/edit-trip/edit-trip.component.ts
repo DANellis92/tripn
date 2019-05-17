@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { TripService } from '../trip.service';
@@ -11,6 +11,12 @@ import { TripService } from '../trip.service';
 export class EditTripComponent implements OnInit {
 
   @Input("trip") trip: Object;
+  @Output() editRefreshed = new EventEmitter<any>();
+
+  refreshEdit(){
+    this.editRefreshed.emit('edit');
+    console.log('editRefreshed() called');
+  }
 
   constructor(public dialog: MatDialog) { }
 
@@ -24,6 +30,7 @@ export class EditTripComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.refreshEdit();
     });
   }
   ngOnInit() {

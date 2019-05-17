@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { TripService } from '../trip.service';
 
 @Component({
   selector: 'app-trip-display',
@@ -9,6 +10,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 export class TripDisplayComponent implements OnInit {
 
   @Input("trip") trip: Object;
+
 
   constructor(public dialog: MatDialog) { }
 
@@ -36,6 +38,26 @@ export class TripDisplayComponent implements OnInit {
   templateUrl: 'trip-display-dialog.html',
 })
 export class TripDisplayDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
-  
+  userId: any;
+  @Input("sessionToken") sessionToken: string;
+
+  onEdit() {
+    this.fetchSingleTrip();
+    console.log('received event');
   }
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private tripService: TripService
+  ){}
+
+  fetchSingleTrip() {
+    this.tripService.getSingleTrip(this.userId, this.data.id, this.sessionToken).subscribe(data => {
+      this.data = data
+      console.log(this.data);
+    })
+  }
+
+  ngOnInit() {
+  }
+}
