@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ExpenseService } from '../expense.service';
 
@@ -11,6 +11,8 @@ import { ExpenseService } from '../expense.service';
 export class ExpenseCreateComponent implements OnInit {
   @Input("userId") userId: any;
   @Input("sessionToken") sessionToken: string;
+  @Input("trip") trip: object;
+
 
   constructor(public dialog: MatDialog, public expenseService: ExpenseService) {}
 
@@ -18,7 +20,8 @@ export class ExpenseCreateComponent implements OnInit {
       const dialogRef = this.dialog.open(ExpenseCreateDialog, {
         height: '80vh',
         width: '90vw',
-        panelClass:"tripn-no-padding-dialog"
+        data: this.trip,
+        panelClass:"tripn-no-padding-dialog",
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -41,18 +44,21 @@ export class ExpenseCreateDialog {
   amount = new FormControl('', [Validators.required]);
   @Input("sessionToken") sessionToken: string;
   @Input("userId") userId: any;
-  @Input("tripId") tripId: any;
+
 
   constructor(
     public dialogRef: MatDialogRef<ExpenseCreateDialog>, 
     private fb: FormBuilder,
-    public expenseService: ExpenseService
+    public expenseService: ExpenseService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
+
     this.expenseCreate = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
     });
   }
+  @Input("trip") trip: object;
 
   ngOnInit() {
     this.expenseCreate = this.fb.group({
@@ -64,9 +70,9 @@ export class ExpenseCreateDialog {
 
   onCreateExpense(): void {
     this.expenseService
-      .createExpense(this.expenseCreate.value, this.sessionToken)
+      .createExpense(this.expenseCreate.value, this.data.id, this.sessionToken)
       .subscribe(Expense => this.dialogRef.close());
-
+      console.log(this.expenseCreate.value);
   }
 
   getExpensedateError() {

@@ -37,7 +37,7 @@
   </mat-dialog-content>
   <div class="DropItLow">
     <mat-dialog-actions>
-      <app-expense-display></app-expense-display>
+      <app-expense-display [trip]="data"></app-expense-display>
       <app-edit-trip [trip]="data" (editRefreshed)="onEdit()"></app-edit-trip>
       <div class="DeleteCircle">
       <button (click)="deleteTrip(data)">

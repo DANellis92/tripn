@@ -25,14 +25,14 @@ export class ExpenseService {
 
   getSingleExpense() {}
 
-  createExpense(expense: Expense, sessionToken) : Observable<any> {
+  createExpense(expenses: Expense, tripId, sessionToken) : Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("sessionToken")
       })}
     return this.http.post<any>(
-      this.dbUrl+"expenses/createexpense", {expense: expense}, httpOptions
+      this.dbUrl+"expenses/createExpense/"+tripId, {expenses: expenses}, httpOptions
     );
   }
 

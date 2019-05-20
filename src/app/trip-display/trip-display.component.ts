@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from "@angular/core";
+import { Component, OnInit, Input, Inject, Output, EventEmitter } from "@angular/core";
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { TripService } from "../trip.service";
 
@@ -9,6 +9,12 @@ import { TripService } from "../trip.service";
 })
 export class TripDisplayComponent implements OnInit {
   @Input("trip") trip: Object;
+  @Output() refreshed = new EventEmitter<any>();
+
+  refreshTrips() {
+    this.refreshed.emit();
+    console.log('Display calls refreshTrips()')
+  }
 
   constructor(public dialog: MatDialog) {}
 
@@ -21,7 +27,7 @@ export class TripDisplayComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    this.refreshTrips();
     });
   }
 
