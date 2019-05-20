@@ -1,0 +1,58 @@
+.MasterDiv {
+    background-color: var(--lgreen);
+}
+.CloseButtonWrapper {
+    background-color: var(--green);
+    width: 100%;
+    
+} 
+.Button {
+    margin-left: 85%;
+    margin-top: 0.5em;
+}
+.CloseButton {
+    color: var(--white);
+}
+.HeaderDiv {
+    background-color: var(--green);
+    height: 19.25vh;
+    display: inline-block;
+    width: 100%;
+}
+.Header {
+    text-align: center;
+    color: var(--white);
+    padding-bottom: 1em;
+}
+.DialogContent {
+    margin: 0 24px;
+    height: 100%;
+}
+.ParentField {
+    width: 100%;
+}
+.InputField {
+    background-color: var(--white);
+    height: 2em;
+    padding: 0;
+    text-align: center;
+    
+}
+.TitleBox {
+    
+    background-color: var(--green);
+    height: 2em;
+    width: 4em;
+    text-align:center;
+    color: var(--white);
+    text-transform: uppercase;
+}
+#TitleID {
+    
+    font-family: var(--OpenSans) !important;
+    font-size: 1em !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    line-height: 2;
+    
+}

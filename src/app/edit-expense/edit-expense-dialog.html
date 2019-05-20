@@ -1,22 +1,38 @@
-<h1 mat-dialog-title>Edit an Expense</h1>
-<mat-dialog-content >
+<div class="EditExpenseWrapper">
+    
+    <div class="CloseButtonWrapper">
+          <button class=ButtonClass mat-dialog-close>
+            <i class="material-icons CloseButton">close</i>
+          </button>
+        </div>
+
+    <div class="EditExpenseHeader">
+    <h1 class="EditExpenseTitle" mat-dialog-title>Edit an Expense</h1>
+    </div>
+
+    <mat-dialog-content class="DialogContent">
     <div [formGroup]="expenseEdit">
-        <mat-form-field appearance="standard">
-            <input matInput placeholder="mm/dd/yyyy" formControlName="expensedate" required>
-            <div matPrefix>Date</div>
+        
+        <mat-form-field class="ParentField Placeholder10" appearance="standard">
+            <input class="InputField" matInput placeholder="mm/dd/yyyy" formControlName="expensedate" required>
+            <div id="TitleID" class="TitleBox Button20" matPrefix>Date</div>
             <mat-error *ngIf="expensedate.invalid">{{ getExpensedateError() }}</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-            <input matInput placeholder="description" formControlName="description" required>
-            <div matPrefix>Description</div>
+        
+        <mat-form-field class="ParentField Placeholder10" appearance="standard">
+            <input class="InputField" matInput placeholder="description" formControlName="description" required>
+            <div  id="TitleID" class="TitleBox Button20" matPrefix>Description</div>
             <mat-error *ngIf="expensedescription.invalid">{{ getExpensedescriptionError() }}</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-            <input matInput placeholder="amount" formControlName= "amount" required>
-            <div matPrefix>Amount</div>
+        
+        <mat-form-field class="ParentField Placeholder10" appearance="standard">
+            <input class="InputField" matInput placeholder="amount" formControlName= "amount" required>
+            <div id="TitleID" class="TitleBox Button20" matPrefix>Amount</div>
             <mat-error *ngIf="expenseamount.invalid">{{ getExpenseamountError() }}</mat-error>
         </mat-form-field>
-        <button mat-flat-button color="primary" cdkFocusInitial>Update</button>
-        <button mat-flat-button color="primary" mat-dialog-close>Close</button>
+        
+        <button class="CreateFooterButton Button20" mat-flat-button color="primary" cdkFocusInitial>Update</button>
+        
     </div>
 </mat-dialog-content>
+</div>

@@ -83,3 +83,24 @@
 ::ng-deep .mat-form-field-flex {
     align-items:flex-end !important;
 }
+
+/* Button */
+
+.Circle {
+        
+    border-radius: 50%;
+    background-color: var(--green);
+    width: 4.5em;
+    height: 4.5em;
+    
+    }
+.EditTripButton {
+    
+    position: relative;
+    margin:auto;
+    color: var(--white);
+    text-align: center;
+    top: .9em;
+    left: .1em;
+        
+        }

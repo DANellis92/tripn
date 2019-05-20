@@ -29,7 +29,8 @@ export class EditExpenseComponent implements OnInit {
 
 @Component({
   selector: 'edit-expense-dialog',
-  templateUrl: 'edit-expense-dialog.html'
+  templateUrl: 'edit-expense-dialog.html',
+  styleUrls: ['./edit-expense.component.css']
 })
 export class EditExpenseDialog {
   editExpense: FormGroup

@@ -117,3 +117,10 @@
     top: .35em;
     left: .18em;
 }
+.TripDisplayButtons {
+  display: inline-block;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-top: 5%;
+  position: relative;
+}

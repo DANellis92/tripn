@@ -33,6 +33,7 @@ export class ExpenseCreateComponent implements OnInit {
 @Component({
   selector: 'expense-create-dialog',
   templateUrl: 'expense-create-dialog.html',
+  styleUrls: ['./expense-create.component.css']
 })
 export class ExpenseCreateDialog {
   expenseCreate: FormGroup
