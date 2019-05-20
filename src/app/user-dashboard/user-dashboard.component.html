@@ -9,7 +9,13 @@
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
 
-    <button>GET OUTTA HERE</button>
+    <button (click)="logOutBr()">Log Out</button>
+    <button
+      *ngIf="isAdmin === 'true'; else hidden"
+      routerLink="/admindashboard"
+    >
+      Admin
+    </button>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="UserDashboard">
@@ -17,12 +23,6 @@
         <div class="ProfileIconWrapper">
           <mat-icon class="ProfileIcon">person</mat-icon>
         </div>
-        <button
-          *ngIf="isAdmin === 'true'; else hidden"
-          routerLink="/admindashboard"
-        >
-          Admin
-        </button>
         <div class="UserInfo">
           <h3 class="UserFullName Header30">{{ this.fullName }}</h3>
         </div>
