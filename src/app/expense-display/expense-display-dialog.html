@@ -16,7 +16,7 @@
                         <header class="ExpenseHeader">
                             <p class="Body20 ExpenseDate">{{expense.date}}</p>
                             <app-edit-expense></app-edit-expense>
-                        <button mat-icon-button> 
+                        <button (click)="deleteExpense(expense)" mat-icon-button> 
                             <mat-icon>delete</mat-icon>
                         </button>
                         </header>
@@ -27,8 +27,11 @@
                     </div>
                 </div>
             </div>
+          </div>
         </div>
-    </mat-dialog-content>
+      </div>
+    </div>
+  </mat-dialog-content>
 
     <mat-dialog-actions>
         <app-expense-create [trip]="data"></app-expense-create>
