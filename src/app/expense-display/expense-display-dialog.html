@@ -6,31 +6,42 @@
 
         <h1 class="TripName Header30">Trip Name</h1>
         <h3 class="ExpensesTitle Button20">Expenses</h3>
-        <h4 class="TotalAmount Header30">Total Amount</h4>
     </div>
-    <mat-dialog-content>
-        <div class="ExpenseModalDisplay">
-            <div class="ExpenseSectionWrapper" *ngIf="expenses">
-                <div class="ExpenseMainWrapper" *ngFor="let expense of expenses">
-                    <div class="IndividualWrapper">
-                        <header class="ExpenseHeader">
+    <mat-dialog-content class="ExpenseModalContent">
+        <div class="ExpenseSectionWrapper" *ngIf="expenses">
+            <div class="ExpenseMainWrapper" *ngFor="let expense of expenses">
+                <div class="IndividualWrapper">
+                    <div class="ExpenseHeader">
+                        <div class="HeaderTitle">
                             <p class="Body20 ExpenseDate">{{expense.date}}</p>
-                            <app-edit-expense [expenses]="expenses" (editRefreshed)="onEdit()"></app-edit-expense>
-                            <button (click)="deleteExpense(expense)" mat-icon-button>
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                        </header>
-                        <div class="ExpenseContent">
-                            <div class="Body20 ExpenseAmount">{{expense.amount}}</div>
-                            <div class="ExpenseDescription">{{expense.description}}</div>
+                        </div>
+                        <div class="HeaderUI">
+                            <div class="iconUI1">
+                                <app-edit-expense [expenses]="expenses" (editRefreshed)="onEdit()"></app-edit-expense>
+                            </div>
+                            <div class="iconUI2">
+                                <button class="icon-btn" (click)="deleteExpense(expense)" mat-icon-button>
+                                    <mat-icon class="icon-btn">delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ExpenseContent">
+                        <div class="AmountWrapper">
+                            <div class="Body20 ExpenseAmount">${{expense.amount}}</div>
+                        </div>
+                        <div class="DescriptionWrapper">
+                            <div class="Body10 ExpenseDescription">{{expense.description}}</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</mat-dialog-content>
+    </mat-dialog-content>
 
-<mat-dialog-actions>
-    <app-expense-create [trip]="data" (refreshed)="onEdit()"></app-expense-create>
-</mat-dialog-actions>
+    <mat-dialog-actions class="actionBar">
+        <div class="UIAction">
+            <app-expense-create [trip]="data" (refreshed)="onEdit()"></app-expense-create>
+        </div>
+    </mat-dialog-actions>
 </div>
