@@ -15,7 +15,7 @@
                     <div class="IndividualWrapper">
                         <header class="ExpenseHeader">
                             <p>{{expense.date}}</p>
-                            <app-edit-expense></app-edit-expense>
+                            <app-edit-expense [expenses]="expenses" (editRefreshed)="onEdit()"></app-edit-expense>
                             <button>Delete</button>
                         </header>
                         <div class="ExpenseContent">
@@ -29,6 +29,6 @@
     </mat-dialog-content>
 
     <mat-dialog-actions>
-        <app-expense-create [trip]="data"></app-expense-create>
+        <app-expense-create [trip]="data" (refreshed)="onEdit()"></app-expense-create>
     </mat-dialog-actions>
 </div>

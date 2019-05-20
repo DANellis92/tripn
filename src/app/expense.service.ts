@@ -36,7 +36,7 @@ export class ExpenseService {
     );
   }
 
-  editExpense(expenses: Expense, sessionToken, tripId, expenseId) : Observable<any> {
+  updateExpense(expenses: Expense, sessionToken, tripId, expenseId) : Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
