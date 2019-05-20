@@ -6,7 +6,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { JwtModule } from "@auth0/angular-jwt";
 import { APIURL } from "../environments/environment.prod";
-import { TokenGetter } from "../helpers/tokenGetter";
+import { tokenGetter } from "../helpers/tokenGetter";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -107,7 +107,7 @@ import {
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: TokenGetter,
+        tokenGetter: tokenGetter,
         whitelistedDomains: [`${APIURL}/dashboard`, `${APIURL}/admindashboard`],
         blacklistedRoutes: [APIURL]
       }
