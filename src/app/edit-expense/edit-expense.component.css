@@ -1,7 +1,83 @@
-.EditExpenseWrapper {
-    background-color: var(--lgreen);
-}
 .EditExpense {
     color: var(--white);
     right: 6em;
+}
+ /* ^ External Button ^ */
+
+.EditExpenseWrapper {
+background-color: var(--lgreen);
+height: 100%;
+}
+
+.CloseButtonWrapper {
+    background-color: var(--green);
+    width: 100%;
+} 
+.ButtonClass {
+    margin-left: 85%;
+    margin-top: 0.5em; 
+}
+.CloseButton {
+    color: var(--white);
+}
+.EditExpenseHeader {
+    background-color: var(--green);
+    height: 19.25vh;
+    display: inline-block;
+    width: 100%;
+    
+}
+.EditExpenseTitle {
+    padding-top: 1em;
+    text-align: center;
+    color: var(--white);
+    padding-bottom: 1em;
+    text-transform: uppercase;
+
+}
+.PostTrip {
+    text-transform: uppercase; 
+}
+.DialogContent {
+    margin: 0 ;
+    height: 23em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.ParentField {
+    width: 100%;
+}
+.InputField {
+    background-color: var(--white);
+    height: 2em;
+    padding: 0;
+    text-align: center;
+    
+}
+.TitleBox {
+    
+    background-color: var(--green);
+    height: 2em;
+    width: 7em;
+    text-align:center;
+    color: var(--white);
+    text-transform: uppercase;
+}
+#TitleID {
+    
+    font-family: var(--OpenSans) !important;
+    font-size: 1em !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    line-height: 2;
+    
+}
+.CreateFooterButton {
+    width: 100%;
+    position: relative;
+    background-color: var(--green);
+    color: var(--white);
+    text-transform: uppercase;
+    bottom: 0;
+    margin-top: 6em;
 }

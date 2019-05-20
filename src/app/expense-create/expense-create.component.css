@@ -25,10 +25,11 @@
     text-align: center;
     color: var(--white);
     padding-bottom: 1em;
+    text-transform: uppercase;
 }
 .DialogContent {
     margin: 0 ;
-    height: 80%;
+    height: 23em;
     padding-left: 1em;
     padding-right: 1em;
 }
