@@ -5,13 +5,14 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { JwtModule } from "@auth0/angular-jwt";
+import { APIURL } from "../environments/environment.prod";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SplashComponent } from "./splash/splash.component";
-import { 
+import {
   ExpenseDisplayComponent,
-  ExpenseDisplayDialog 
+  ExpenseDisplayDialog
 } from "./expense-display/expense-display.component";
 import {
   ExpenseCreateComponent,
@@ -108,11 +109,8 @@ import {
         tokenGetter: function tokenGetter() {
           return sessionStorage.getItem("sessionToken");
         },
-        whitelistedDomains: [
-          "localhost:4200/dashboard",
-          "localhost:4200/admindashboard"
-        ],
-        blacklistedRoutes: ["localhost:4200"]
+        whitelistedDomains: [`${APIURL}/dashboard`, `${APIURL}/admindashboard`],
+        blacklistedRoutes: [APIURL]
       }
     }),
     MatCheckboxModule,
