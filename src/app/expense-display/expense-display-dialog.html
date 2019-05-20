@@ -15,10 +15,10 @@
                     <div class="IndividualWrapper">
                         <header class="ExpenseHeader">
                             <p class="Body20 ExpenseDate">{{expense.date}}</p>
-                            <app-edit-expense></app-edit-expense>
-                        <button (click)="deleteExpense(expense)" mat-icon-button> 
-                            <mat-icon>delete</mat-icon>
-                        </button>
+                            <app-edit-expense [expenses]="expenses" (editRefreshed)="onEdit()"></app-edit-expense>
+                            <button (click)="deleteExpense(expense)" mat-icon-button>
+                                <mat-icon>delete</mat-icon>
+                            </button>
                         </header>
                         <div class="ExpenseContent">
                             <div class="Body20 ExpenseAmount">{{expense.amount}}</div>
@@ -27,14 +27,10 @@
                     </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </mat-dialog-content>
+</mat-dialog-content>
 
-    <mat-dialog-actions>
-        <app-expense-create [trip]="data"></app-expense-create>
-    </mat-dialog-actions>
+<mat-dialog-actions>
+    <app-expense-create [trip]="data" (refreshed)="onEdit()"></app-expense-create>
+</mat-dialog-actions>
 </div>
-

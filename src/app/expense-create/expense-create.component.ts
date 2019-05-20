@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ExpenseService } from '../expense.service';
@@ -12,6 +12,12 @@ export class ExpenseCreateComponent implements OnInit {
   @Input("userId") userId: any;
   @Input("sessionToken") sessionToken: string;
   @Input("trip") trip: object;
+  @Output() refreshed = new EventEmitter<any>();
+
+  refreshExpenses(){
+    this.refreshed.emit();
+    console.log('refreshExpenses() called')
+  }
 
 
   constructor(public dialog: MatDialog, public expenseService: ExpenseService) {}
@@ -25,7 +31,8 @@ export class ExpenseCreateComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        console.log("check for closed");
+        this.refreshExpenses();
       });
     }
 
