@@ -106,7 +106,7 @@ import {
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function tokenGetter() {
+        tokenGetter: () => {
           return sessionStorage.getItem("sessionToken");
         },
         whitelistedDomains: [`${APIURL}/dashboard`, `${APIURL}/admindashboard`],
