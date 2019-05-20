@@ -46,14 +46,14 @@
       <br />
       <div class="UIControls">
         <div class="UIControlsWrapper">
-          <button class="MenuButton" (click)="sidenav.open()">
-            <i class="material-icons">menu</i>
+          <button mat-icon-button class="MenuButton" (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
           </button>
-          <button class="MenuButton">
+          <button mat-icon-button class="MenuButton">
             <app-trip-create (refreshed)="onRefresh()"></app-trip-create>
           </button>
-          <button class="MenuButton">
-            <i class="material-icons">settings</i>
+          <button mat-icon-button class="MenuButton">
+            <mat-icon>settings</mat-icon>
           </button>
         </div>
       </div>

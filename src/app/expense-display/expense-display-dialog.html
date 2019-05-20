@@ -1,7 +1,7 @@
 <div class="ExpenseOverallWrapper">
   <div mat-dialog-title class="ExpenseModalHeader">
-    <button mat-dialog-close>
-      <i class="material-icons">close</i>
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
     </button>
 
     <h1>Trip Name</h1>
@@ -16,7 +16,9 @@
             <header class="ExpenseHeader">
               <p>{{ expense.date }}</p>
               <app-edit-expense></app-edit-expense>
-              <button (click)="deleteExpense(expense)">Delete</button>
+              <button mat-icon-button (click)="deleteExpense(expense)">
+                <mat-icon>delete</mat-icon>
+              </button>
             </header>
             <div class="ExpenseContent">
               <div class="ExpenseAmount">{{ expense.amount }}</div>
