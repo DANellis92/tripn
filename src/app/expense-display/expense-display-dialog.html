@@ -1,34 +1,34 @@
 <div class="ExpenseOverallWrapper">
-    <div mat-dialog-title class="ExpenseModalHeader">
-        <button mat-dialog-close>
-            <i class="material-icons">close</i>
-        </button>
+  <div mat-dialog-title class="ExpenseModalHeader">
+    <button mat-dialog-close>
+      <i class="material-icons">close</i>
+    </button>
 
-        <h1>Trip Name</h1>
-        <h3>Expenses</h3>
-        <h4>Total Amount</h4>
-    </div>
-    <mat-dialog-content>
-        <div class="ExpenseModalDisplay">
-            <div class="ExpenseSectionWrapper" *ngIf="expenses">
-                <div class="ExpenseMainWrapper" *ngFor="let expense of expenses">
-                    <div class="IndividualWrapper">
-                        <header class="ExpenseHeader">
-                            <p>{{expense.date}}</p>
-                            <app-edit-expense></app-edit-expense>
-                            <button>Delete</button>
-                        </header>
-                        <div class="ExpenseContent">
-                            <div class="ExpenseAmount">{{expense.amount}}</div>
-                            <div class="ExpenseDescription">{{expense.description}}</div>
-                        </div>
-                    </div>
-                </div>
+    <h1>Trip Name</h1>
+    <h3>Expenses</h3>
+    <h4>Total Amount</h4>
+  </div>
+  <mat-dialog-content>
+    <div class="ExpenseModalDisplay">
+      <div class="ExpenseSectionWrapper" *ngIf="expenses">
+        <div class="ExpenseMainWrapper" *ngFor="let expense of expenses">
+          <div class="IndividualWrapper">
+            <header class="ExpenseHeader">
+              <p>{{ expense.date }}</p>
+              <app-edit-expense></app-edit-expense>
+              <button (click)="deleteExpense(expense)">Delete</button>
+            </header>
+            <div class="ExpenseContent">
+              <div class="ExpenseAmount">{{ expense.amount }}</div>
+              <div class="ExpenseDescription">{{ expense.description }}</div>
             </div>
+          </div>
         </div>
-    </mat-dialog-content>
+      </div>
+    </div>
+  </mat-dialog-content>
 
-    <mat-dialog-actions>
-        <app-expense-create [trip]="data"></app-expense-create>
-    </mat-dialog-actions>
+  <mat-dialog-actions>
+    <app-expense-create [trip]="data"></app-expense-create>
+  </mat-dialog-actions>
 </div>
