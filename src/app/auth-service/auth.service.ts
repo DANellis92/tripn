@@ -3,6 +3,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { User } from "../models/user.models";
+import { APIURL } from "../../environments/environment.prod";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +15,7 @@ const httpOptions = {
   providedIn: "root"
 })
 export class AuthService {
-  public dbUrl = "https://tripn-server.herokuapp.com/user/";
+  public dbUrl = APIURL;
 
   constructor(public jwtHelper: JwtHelperService, public http: HttpClient) {}
 
@@ -22,13 +23,13 @@ export class AuthService {
     let userObj = { user: user };
     console.log("inside service => ", userObj);
     return this.http.post<any>(
-      this.dbUrl + "signup",
+      this.dbUrl + "/signup",
       { user: user },
       httpOptions
     );
   }
   logInAuth(user: User): Observable<any> {
-    return this.http.post<any>(this.dbUrl + "login", user, httpOptions);
+    return this.http.post<any>(this.dbUrl + "/login", user, httpOptions);
   }
 
   public isAuthenticated(): boolean {

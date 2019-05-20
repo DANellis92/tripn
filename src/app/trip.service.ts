@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Trip } from "./models/trip.models";
 import { Observable } from "rxjs";
+import { APIURL } from "../environments/environment.prod";
 
 @Injectable({
   providedIn: "root"
 })
 export class TripService {
-  private dbUrl = "https://tripn-server.herokuapp.com/";
+  private dbUrl = APIURL;
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +19,7 @@ export class TripService {
         Authorization: sessionStorage.getItem("sessionToken")
       })
     };
-    return this.http.get(this.dbUrl + "trips/mytrips/", httpOptions);
+    return this.http.get(this.dbUrl + "/trips/mytrips/", httpOptions);
   }
 
   getSingleTrip(userId, tripId, sessionToken): Observable<any> {
@@ -26,13 +27,12 @@ export class TripService {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("sessionToken")
-      })}
-    return this.http.get(
-      this.dbUrl+"trips/thistrip/"+tripId, httpOptions
-    );
+      })
+    };
+    return this.http.get(this.dbUrl + "/trips/thistrip/" + tripId, httpOptions);
   }
 
-  createTrip(trip: Trip, sessionToken) : Observable<any> {
+  createTrip(trip: Trip, sessionToken): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export class TripService {
       })
     };
     return this.http.post<any>(
-      this.dbUrl + "trips/create",
+      this.dbUrl + "/trips/create",
       { trip: trip },
       httpOptions
     );
@@ -54,7 +54,7 @@ export class TripService {
       })
     };
     return this.http.put<any>(
-      this.dbUrl + "trips/edit/" + tripId,
+      this.dbUrl + "/trips/edit/" + tripId,
       { trip: trip },
       httpOptions
     );
@@ -68,7 +68,7 @@ export class TripService {
       })
     };
     return this.http.delete(
-      "https://tripn-server.herokuapp.com/trips/deletetrip/" + id,
+      this.dbUrl + "/trips/deletetrip/" + id,
       httpOptions
     );
   }
