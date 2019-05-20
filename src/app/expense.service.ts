@@ -36,7 +36,16 @@ export class ExpenseService {
     );
   }
 
-  editExpense() {}
+  editExpense(expenses: Expense, sessionToken, tripId, expenseId) : Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: sessionStorage.getItem("sessionToken")
+      })};
+    return this.http.put<any>(
+      this.dbUrl+"expenses/edit/"+tripId+"/"+expenseId, {expenses: expenses}, httpOptions
+    );
+  }
 
   deleteExpense() {}
 }

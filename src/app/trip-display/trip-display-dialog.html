@@ -39,12 +39,11 @@
     <mat-dialog-actions>
      
       <button class="TripDisplayButtons">
-      <app-expense-display></app-expense-display>
+          <app-expense-display [trip]="data"></app-expense-display>
       </button>
       
       <button class="TripDisplayButtons">
-      <app-expense-display [trip]="data"></app-expense-display>
-      <app-edit-trip [trip]="data" (editRefreshed)="onEdit()"></app-edit-trip>
+         <app-edit-trip [trip]="data" (editRefreshed)="onEdit()"></app-edit-trip>
       </button>
       
       <div class="DeleteCircle TripDisplayButtons">
