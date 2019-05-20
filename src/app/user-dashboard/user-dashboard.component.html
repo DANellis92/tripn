@@ -33,7 +33,7 @@
       <div class="DataDisplay">
         <ul class="TripIterateWrapper" *ngIf="trips">
           <li class="TripButtonWrapper" *ngFor="let trip of trips">
-            <app-trip-display [trip]="trip"></app-trip-display>
+            <app-trip-display [trip]="trip" (refreshed)="onRefresh()"></app-trip-display>
           </li>
         </ul>
       </div>

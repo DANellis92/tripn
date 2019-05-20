@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, Input, Inject, Output, EventEmitter } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { ExpenseService } from '../expense.service';
 
 @Component({
   selector: 'app-expense-display',
@@ -7,6 +8,8 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./expense-display.component.css']
 })
 export class ExpenseDisplayComponent implements OnInit {
+  @Input("trip") trip: object;
+  @Input("expense") expenses: object;
 
   constructor(public dialog: MatDialog) { }
 
@@ -14,6 +17,7 @@ export class ExpenseDisplayComponent implements OnInit {
     const dialogRef = this.dialog.open(ExpenseDisplayDialog, {
       height: '80vh',
       width: '90vw',
+      data: this.trip,
       panelClass:"tripn-no-padding-dialog"
     });
 
@@ -23,13 +27,42 @@ export class ExpenseDisplayComponent implements OnInit {
   }
   ngOnInit() {
   }
-
 }
+
 @Component({
   selector: 'expense-display-dialog',
   templateUrl: 'expense-display-dialog.html',
+  styleUrls: ['./expense-display.component.css']
 })
 export class ExpenseDisplayDialog {
+  expenses: [];
+  userId: any;
+  tripId: any;
+  @Input("sessionToken") sessionToken: string;
+
+  constructor(
+    private expenseService: ExpenseService,
+    public dialogRef: MatDialogRef<ExpenseDisplayDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+
+  ) {
+    this.userId = sessionStorage.getItem("userId");
+  }
+  @Input("trip") trip: object;
+  @Input("expense") expense: object;
+
+  fetchAllExpenses() {
+    this.expenseService.getMyExpenses(this.userId, this.data.id, this.sessionToken).subscribe(expense => {
+      this.expenses = expense
+      this.expenses.reverse();
+      console.log(this.data);
+    })
+  }
+
+  ngOnInit() {
+    this.fetchAllExpenses();
+  }
+
 
 }
 

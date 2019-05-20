@@ -43,6 +43,7 @@
       </button>
       
       <button class="TripDisplayButtons">
+      <app-expense-display [trip]="data"></app-expense-display>
       <app-edit-trip [trip]="data" (editRefreshed)="onEdit()"></app-edit-trip>
       </button>
       

@@ -8,28 +8,29 @@
         <h1 class="Header Header30" mat-dialog-title>Log an Expense</h1>
     </div>
     <mat-dialog-content class="DialogContent">
-        <form class="BottomDiv" [formGroup]="expenseCreate">
+        <form class="BottomDiv" [formGroup]="expenseCreate" (submit)="onCreateExpense()">
 
             <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-                <input class="InputField" matInput placeholder="mm/dd/yyyy" formControlName="expensedate" required>
+                <input class="InputField" matInput placeholder="mm/dd/yyyy" formControlName="date" required>
                 <div id="TitleID" class="TitleBox Button20" matPrefix>Date</div>
-                <mat-error *ngIf="expensedate.invalid">{{ getExpensedateError() }}</mat-error>
+                <mat-error *ngIf="date.invalid">{{ getExpensedateError() }}</mat-error>
             </mat-form-field>
 
             <mat-form-field class="Placeholder10 ParentField" appearance="standard">
                 <input class="InputField" matInput placeholder="description" formControlName="description" required>
                 <div id="TitleID" class="TitleBox Button20" matPrefix>Description</div>
-                <mat-error *ngIf="expensedescription.invalid">{{ getExpensedescriptionError() }}</mat-error>
+                <mat-error *ngIf="description.invalid">{{ getExpensedescriptionError() }}</mat-error>
             </mat-form-field>
 
             <mat-form-field class="Placeholder10 ParentField" appearance="standard">
                 <input class="InputField" matInput placeholder="amount" formControlName="amount" required>
                 <div id="TitleID" class="TitleBox Button20" matPrefix>Amount</div>
-                <mat-error *ngIf="expenseamount.invalid">{{ getExpenseamountError() }}</mat-error>
+                <mat-error *ngIf="amount.invalid">{{ getExpenseamountError() }}</mat-error>
             </mat-form-field>
 
-            <button class="CreateFooterButton Button20" mat-flat-button color="primary" cdkFocusInitial>Submit</button>
+            <button class="CreateFooterButton Button20" mat-flat-button color="primary" cdkFocusInitial type="submit">Submit</button>
 
         </form>
     </mat-dialog-content>
 </div>
+
