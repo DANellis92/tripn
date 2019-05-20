@@ -1,3 +1,7 @@
 .EditExpenseWrapper {
     background-color: var(--lgreen);
 }
+.EditExpense {
+    color: var(--white);
+    right: 6em;
+}

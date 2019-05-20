@@ -1,5 +1,6 @@
 .MasterDiv {
     background-color: var(--lgreen);
+    height: 100%;
 }
 .CloseButtonWrapper {
     background-color: var(--green);
@@ -20,13 +21,16 @@
     width: 100%;
 }
 .Header {
+    padding-top: 1em;
     text-align: center;
     color: var(--white);
     padding-bottom: 1em;
 }
 .DialogContent {
-    margin: 0 24px;
-    height: 100%;
+    margin: 0 ;
+    height: 80%;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .ParentField {
     width: 100%;
@@ -42,7 +46,7 @@
     
     background-color: var(--green);
     height: 2em;
-    width: 4em;
+    width: 6em;
     text-align:center;
     color: var(--white);
     text-transform: uppercase;
@@ -55,4 +59,13 @@
     font-style: normal !important;
     line-height: 2;
     
+}
+.CreateFooterButton {
+    width: 100%;
+    position: relative;
+    background-color: var(--green);
+    color: var(--white);
+    text-transform: uppercase;
+    bottom: 0;
+    margin-top: 6em;
 }

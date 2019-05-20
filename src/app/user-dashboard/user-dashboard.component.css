@@ -90,5 +90,36 @@
 .side-nav-drawer {
   width: 60%;
   z-index: 3;
-  background-color: var(--dgreen);
+  background-color: var(--green);
+}
+
+.AdminDiv {
+  background-color: var(--white);
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  margin:auto;
+  margin-top: 6em; 
+  width: 90%;
+}
+
+.LogoutDiv {
+  background-color: var(--white);
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  margin:auto;
+  margin-top: 6em; 
+  width: 90%;
+  
+}
+
+.LogoutButton {
+  color: var(--lgreen);
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 3.5em;
+}
+
+.AdminButton {
+  color: var(--lgreen);
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 4em;
 }
