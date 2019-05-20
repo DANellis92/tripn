@@ -23,13 +23,13 @@ export class AuthService {
     let userObj = { user: user };
     console.log("inside service => ", userObj);
     return this.http.post<any>(
-      this.dbUrl + "/signup",
+      this.dbUrl + "/user/signup",
       { user: user },
       httpOptions
     );
   }
   logInAuth(user: User): Observable<any> {
-    return this.http.post<any>(this.dbUrl + "/login", user, httpOptions);
+    return this.http.post<any>(this.dbUrl + "/user/login", user, httpOptions);
   }
 
   public isAuthenticated(): boolean {
