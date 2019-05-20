@@ -1,12 +1,17 @@
-<h1>Admin Dashboard</h1>
-<button mat-flat (click)="backButton()" routerLink="/dashboard">Back</button>
+<div class="BigDaddyWrapper">
+<div class="DashTitleWrapper">
+  <button class="AdminClose" mat-flat (click)="backButton()" routerLink="/dashboard">
+  <i class="material-icons CloseButton">close</i>
+  </button>
+<h1 class="Header30 DashTitle">Admin Dashboard</h1>
+</div>
 <div *ngIf="adminUsers?.length > 0">
   <mat-accordion>
     <mat-expansion-panel *ngFor="let adminUser of adminUsers" hideToggle>
       <mat-expansion-panel-header>
-        <mat-panel-title (click)="getThisUsersTrips()">
+        <mat-panel-description class="Accordion Button20"(click)="getThisUsersTrips()">
           {{ adminUser.username }}
-        </mat-panel-title>
+        </mat-panel-description>
 
         <button
           mat-icon-button
@@ -18,7 +23,7 @@
       </mat-expansion-panel-header>
 
       <mat-list *ngFor="let trip of userTrips">
-        <mat-list-item *ngIf="adminUser.id == trip.userId; else void">
+        <mat-list-item class="Accordion Button20" *ngIf="adminUser.id == trip.userId; else null">
           {{ trip.tripName }}
 
           <button
@@ -34,4 +39,5 @@
       </mat-list>
     </mat-expansion-panel>
   </mat-accordion>
+</div>
 </div>

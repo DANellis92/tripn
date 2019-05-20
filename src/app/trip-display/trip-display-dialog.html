@@ -1,26 +1,51 @@
-<div mat-dialog-title>
-  <button mat-dialog-close>
-    <i class="material-icons">close</i>
-  </button>
 
-  <h1>{{ data.tripName }}</h1>
-  <h4>{{ data.startDate }}</h4>
-  <p>to</p>
-  <h4>
-    {{ data.endDate || "In Progress" }}
-  </h4>
-</div>
-<mat-dialog-content>
-  <div class="DistanceDisplay">
-    {{ data.distance }}
+<div class="DisplayWrapper">
+  <div class="DisplayTitleWrapper" mat-dialog-title>
+
+    <button class="TripClose" mat-dialog-close>
+      <i class="material-icons CloseButton">close</i>
+    </button>
+
+    <div>
+      <h1 class="TripName Header30">{{ data.tripName }}</h1>
+    </div>
+
+    <div class="StartWrapper">
+      <h4 class="StartDate Body20">{{ data.startDate }}</h4>
+    </div>
+
+    <div class="ToClass">
+      <p class="PClass Caption20">to</p>
+    </div>
+
+    <div class="EndWrapper">
+      <h4 class="EndDate Body20"> {{ data.endDate || "In Progress" }}</h4>
+    </div>
+
   </div>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <app-expense-display></app-expense-display>
-  <app-edit-trip [trip]="data"></app-edit-trip>
-  <button (click)="deleteTrip(data)">
-    <i class="material-icons">
-      delete
-    </i>
-  </button>
-</mat-dialog-actions>
+
+  <mat-dialog-content class="DistanceWrapper">
+    <div class="DistanceDisplay1">
+      <div class="DistanceDisplay2">
+        <div class="ActualDistance Header10">
+          {{ data.distance }}
+        
+          <p class="Caption20 DistanceLabel">mi</p>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <div class="DropItLow">
+    <mat-dialog-actions>
+      <app-expense-display></app-expense-display>
+      <app-edit-trip [trip]="data" (editRefreshed)="onEdit()"></app-edit-trip>
+      <div class="DeleteCircle">
+      <button (click)="deleteTrip(data)">
+        <i class="material-icons DeleteTrip">
+          delete
+        </i>
+      </button>
+      </div>
+     </mat-dialog-actions>
+  </div>
+</div>

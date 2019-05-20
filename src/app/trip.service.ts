@@ -21,9 +21,18 @@ export class TripService {
     return this.http.get(this.dbUrl + "trips/mytrips/", httpOptions);
   }
 
-  getSingleTrip() {}
+  getSingleTrip(userId, tripId, sessionToken): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: sessionStorage.getItem("sessionToken")
+      })}
+    return this.http.get(
+      this.dbUrl+"trips/thistrip/"+tripId, httpOptions
+    );
+  }
 
-  createTrip(trip: Trip, sessionToken): Observable<any> {
+  createTrip(trip: Trip, sessionToken) : Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",

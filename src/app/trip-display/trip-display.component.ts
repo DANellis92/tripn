@@ -29,17 +29,34 @@ export class TripDisplayComponent implements OnInit {
 }
 
 @Component({
-  selector: "trip-display-dialog",
-  templateUrl: "trip-display-dialog.html"
+  selector: 'trip-display-dialog',
+  templateUrl: 'trip-display-dialog.html',
+  styleUrls: ['./trip-display.component.css']
 })
 export class TripDisplayDialog {
+  userId: any;
+  @Input("sessionToken") sessionToken: string;
+
+  onEdit() {
+    this.fetchSingleTrip();
+    console.log('received event');
+  }
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private trips: TripService,
+    private tripService: TripService,
     public dialogRef: MatDialogRef<TripDisplayDialog>
   ) {}
   @Input("trip") trip: object;
   selectedTrip = this.trip;
+
+  fetchSingleTrip() {
+    this.tripService.getSingleTrip(this.userId, this.data.id, this.sessionToken).subscribe(data => {
+      this.data = data
+      console.log(this.data);
+    })
+  }
 
   ngOnInit() {
     console.log(this.data);
