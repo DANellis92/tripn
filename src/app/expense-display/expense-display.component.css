@@ -14,3 +14,73 @@ background-color: var(--green);
 width: 4.5em;
 height: 4.5em;
 }
+
+/* DISPLAY */
+
+.ExpenseOverallWrapper {
+    background-color: var(--lgreen);
+    height: 100%;
+}
+.ExpenseModalHeader {
+    height: 40%;
+    background-color: var(--green);
+    
+}
+.TripName {
+    color: var(--white);
+    text-align:center;
+    text-transform: uppercase;
+    margin: 0;
+}
+.ExpensesTitle {
+    color: var(--white);
+    text-align: center;
+    text-transform: uppercase;
+}
+.TotalAmount {
+    color: var(--white);
+    text-align: center;
+    margin: 0 ;
+}
+.CloseButton {
+    
+    margin-left: 85%;
+    margin-top: 0.5em;
+    color:var(--white);
+}
+.Close {
+    color: var(--white);
+}
+
+.ExpenseHeader {
+    background-color: var(--dgrey);
+    border-radius: 0.5em 0.5em 0em 0em;
+    width: 95%;
+    margin: auto;
+    height: 3em;
+}
+
+.ExpenseContent {
+    background-color: var(--white);
+    border-radius: 0em 0em 0.5em 0.5em;
+    width: 95%;
+    margin: auto;
+    height: 3em;
+}
+.ExpenseDate {
+    position:relative;
+    margin: 0;
+    margin-left: 2em;
+    line-height: 2.5;
+
+    color: var(--white);
+    width: 10em;
+    padding: 0;
+    margin-right: 0;
+}
+.ExpenseAmount {
+    color: var(--green);
+    margin-left: 1.5em;
+    line-height: 2.5
+
+}

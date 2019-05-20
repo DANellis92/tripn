@@ -1,5 +1,5 @@
 <mat-sidenav-container class="example-container" (backdropClick)="close()">
-  <mat-sidenav
+  <mat-sidenav 
     #sidenav
     class="side-nav-drawer"
     (keydown.escape)="close()"
@@ -8,14 +8,18 @@
     <button class="nav-close" mat-icon-button (click)="close()">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
-
-    <button (click)="logOutBr()">Log Out</button>
-    <button
+    <div class= "LogoutDiv">
+    <button class="LogoutButton Button20" (click)="logOutBruh()">Log Out</button>
+   </div>
+    
+   <div class="AdminDiv">
+   <button class="AdminButton Button20"
       *ngIf="isAdmin === 'true'; else hidden"
       routerLink="/admindashboard"
     >
       Admin
     </button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="UserDashboard">
