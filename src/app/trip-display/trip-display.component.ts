@@ -15,7 +15,7 @@ import { TripService } from "../trip.service";
   styleUrls: ["./trip-display.component.css"]
 })
 export class TripDisplayComponent implements OnInit {
-  @Input("trip") trip: [];
+  @Input("trip") trip: object;
   @Output() refreshed = new EventEmitter<any>();
 
   refreshTrips() {
