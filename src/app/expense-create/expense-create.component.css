@@ -1,3 +1,16 @@
+.Circle {    
+    border-radius: 50%;
+    background-color: var(--green);
+    width: 3em;
+    height: 3em;
+}
+
+.ExpenseCreateButton {
+    color: var(--white);
+    margin: auto;
+    left: 0.25em;
+}
+    
 .MasterDiv {
     background-color: var(--lgreen);
     height: 100%;
