@@ -1,4 +1,6 @@
 # Tripn
+  Tripn is an app designed specifically for users who travel for work as well as their employers. Users first create an account with a chosen username and password, as well as provide their name and email address. Tripn organizes the user's travel into individual trips in the user's dashboard view. The user logs details such as travel dates and total miles traveled into these individual trips. Each trip also includes a log of the expenses associated with the user's travel, including the date, a description, and total cost. The total costs are added together in the expense display for review by the employer. Both trips and the expenses associated with them can be edited in the user dashboard in case errors were made. Tripn also has an admin feature where admin users can manage both user accounts and each overall trip. Tripn was built with Angular CLI and styled in CSS with Angular Material. The back end of the project was built using Sequelize and Postgres, and was finally deployed to Heroku.`
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
