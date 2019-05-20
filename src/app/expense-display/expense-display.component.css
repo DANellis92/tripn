@@ -1,0 +1,16 @@
+.ExpenseDisplayButton {
+position: relative;
+margin:auto;
+color: var(--white);
+text-align: center;
+top: .9em;
+left: .1em;
+
+}
+.Circle {
+        
+border-radius: 50%;
+background-color: var(--green);
+width: 4.5em;
+height: 4.5em;
+}
