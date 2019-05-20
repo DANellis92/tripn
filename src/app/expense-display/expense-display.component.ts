@@ -46,6 +46,11 @@ export class ExpenseDisplayDialog {
   tripId: any;
   @Input("sessionToken") sessionToken: string;
 
+  onEdit() {
+    this.fetchAllExpenses();
+    console.log('received event');
+  }
+
   constructor(
     private expenseService: ExpenseService,
     public dialogRef: MatDialogRef<ExpenseDisplayDialog>,

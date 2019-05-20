@@ -4,9 +4,9 @@
       <mat-icon class="Close">close</mat-icon>
     </button>
 
-    <h1>Trip Name</h1>
-    <h3>Expenses</h3>
-    <h4>Total Amount</h4>
+    <h1 class="TripName Header30">Trip Name</h1>
+    <h3 class="ExpensesTitle Button20">Expenses</h3>
+    <h4 class="TotalAmount Header30">Total Amount</h4>
   </div>
   <mat-dialog-content>
     <div class="ExpenseModalDisplay">
@@ -14,14 +14,17 @@
         <div class="ExpenseMainWrapper" *ngFor="let expense of expenses">
           <div class="IndividualWrapper">
             <header class="ExpenseHeader">
-              <p>{{ expense.date }}</p>
-              <app-edit-expense></app-edit-expense>
-              <button mat-icon-button (click)="deleteExpense(expense)">
+              <p class="Body20 ExpenseDate">{{ expense.date }}</p>
+              <app-edit-expense
+                [expenses]="expenses"
+                (editRefreshed)="onEdit()"
+              ></app-edit-expense>
+              <button (click)="deleteExpense(expense)" mat-icon-button>
                 <mat-icon>delete</mat-icon>
               </button>
             </header>
             <div class="ExpenseContent">
-              <div class="ExpenseAmount">{{ expense.amount }}</div>
+              <div class="Body20 ExpenseAmount">{{ expense.amount }}</div>
               <div class="ExpenseDescription">{{ expense.description }}</div>
             </div>
           </div>
@@ -31,6 +34,9 @@
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <app-expense-create [trip]="data"></app-expense-create>
+    <app-expense-create
+      [trip]="data"
+      (refreshed)="onEdit()"
+    ></app-expense-create>
   </mat-dialog-actions>
 </div>

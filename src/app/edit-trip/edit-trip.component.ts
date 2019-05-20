@@ -48,7 +48,7 @@ export class EditTripDialog {
   startDate = new FormControl('', [Validators.required]);
   endDate = new FormControl('');
   distance = new FormControl('', [Validators.required]);
-  @Input("sessionToken") sessionToken; string;
+  @Input("sessionToken") sessionToken: string;
   @Input("userId") userId: any;
 
   constructor(
@@ -56,8 +56,8 @@ export class EditTripDialog {
     private fb: FormBuilder,
     public tripService: TripService,
     @Inject(MAT_DIALOG_DATA) public data: any
-
     ) { 
+      
     this.editTrip = fb.group({
       hideRequired: false,
       floatLabel: 'auto'

@@ -1,6 +1,6 @@
 <div class="EditExpenseWrapper">
   <div class="CloseButtonWrapper">
-    <button mat-icon-button class="ButtonClass" mat-dialog-close>
+    <button class="ButtonClass" mat-dialog-close>
       <i class="material-icons CloseButton">close</i>
     </button>
   </div>
@@ -10,19 +10,17 @@
   </div>
 
   <mat-dialog-content class="DialogContent">
-    <div [formGroup]="expenseEdit">
+    <form [formGroup]="editExpense" (submit)="onEditExpense(id)">
       <mat-form-field class="ParentField Placeholder10" appearance="standard">
         <input
           class="InputField"
           matInput
           placeholder="mm/dd/yyyy"
-          formControlName="expensedate"
+          formControlName="date"
           required
         />
         <div id="TitleID" class="TitleBox Button20" matPrefix>Date</div>
-        <mat-error *ngIf="expensedate.invalid">{{
-          getExpensedateError()
-        }}</mat-error>
+        <mat-error *ngIf="date.invalid">{{ getExpensedateError() }}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="ParentField Placeholder10" appearance="standard">
@@ -34,7 +32,7 @@
           required
         />
         <div id="TitleID" class="TitleBox Button20" matPrefix>Description</div>
-        <mat-error *ngIf="expensedescription.invalid">{{
+        <mat-error *ngIf="description.invalid">{{
           getExpensedescriptionError()
         }}</mat-error>
       </mat-form-field>
@@ -48,7 +46,7 @@
           required
         />
         <div id="TitleID" class="TitleBox Button20" matPrefix>Amount</div>
-        <mat-error *ngIf="expenseamount.invalid">{{
+        <mat-error *ngIf="amount.invalid">{{
           getExpenseamountError()
         }}</mat-error>
       </mat-form-field>
@@ -58,9 +56,10 @@
         mat-flat-button
         color="primary"
         cdkFocusInitial
+        type="submit"
       >
         Update
       </button>
-    </div>
+    </form>
   </mat-dialog-content>
 </div>
