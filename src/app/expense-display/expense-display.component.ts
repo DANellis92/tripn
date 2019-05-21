@@ -79,5 +79,6 @@ export class ExpenseDisplayDialog {
     let tripId = this.data.id;
     let id = expense.id;
     this.expenseService.deleteExpense(tripId, id).subscribe(res => res);
+    this.fetchAllExpenses();
   }
 }
