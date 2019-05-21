@@ -3,16 +3,16 @@ position: relative;
 margin:auto;
 color: var(--white);
 text-align: center;
-top: .9em;
-left: .1em;
+top: .3em;
+left: .2em;
 
 }
 .Circle {
         
 border-radius: 50%;
 background-color: var(--green);
-width: 4.5em;
-height: 4.5em;
+width: 3em;
+height: 3em;
 }
 
 /* DISPLAY */
@@ -21,66 +21,113 @@ height: 4.5em;
     background-color: var(--lgreen);
     height: 100%;
 }
+
 .ExpenseModalHeader {
     height: 40%;
     background-color: var(--green);
-    
 }
-.TripName {
-    color: var(--white);
-    text-align:center;
-    text-transform: uppercase;
-    margin: 0;
-}
-.ExpensesTitle {
-    color: var(--white);
-    text-align: center;
-    text-transform: uppercase;
-}
-.TotalAmount {
-    color: var(--white);
-    text-align: center;
-    margin: 0 ;
-}
+
 .CloseButton {
-    
     margin-left: 85%;
     margin-top: 0.5em;
+}
+
+.Close {
     color:var(--white);
 }
-.Close {
+
+.TripName {
+    text-align: center;
+    text-transform: uppercase;
     color: var(--white);
 }
 
-.ExpenseHeader {
-    background-color: var(--dgrey);
-    border-radius: 0.5em 0.5em 0em 0em;
-    width: 95%;
+.ExpensesTitle {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.ExpenseModalContent {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    width: 100%;
+}
+
+.ExpenseSectionWrapper {
+    width: 90%;
     margin: auto;
-    height: 3em;
+}
+
+.ExpenseMainWrapper {
+   margin-top: 1em;
+   margin-bottom: 1em;
+   
+}
+
+.ExpenseHeader {
+    overflow: hidden;
+    background-color: var(--dgrey);
+    border-radius: 0.5em 0.5em 0 0;
+}
+
+.HeaderTitle {
+    position: relative;
+    float: left;
+}
+
+.ExpenseDate {
+    padding-left: 1em;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.HeaderUI {
+    float: right;
+}
+
+.iconUI1 {
+    float: left;
+    color: var(--white);
+}
+
+.iconUI2 {
+    float: right;
+}
+
+.icon-btn {
+    color: var(--white);
 }
 
 .ExpenseContent {
     background-color: var(--white);
-    border-radius: 0em 0em 0.5em 0.5em;
-    width: 95%;
-    margin: auto;
-    height: 3em;
+    border-radius: 0 0 0.5em 0.5em;
+    overflow: hidden;
+    padding: 0.5em;
 }
-.ExpenseDate {
-    position:relative;
-    margin: 0;
-    margin-left: 2em;
-    line-height: 2.5;
 
-    color: var(--white);
-    width: 10em;
-    padding: 0;
-    margin-right: 0;
+.AmountWrapper {
+    float: left;
 }
+
 .ExpenseAmount {
     color: var(--green);
-    margin-left: 1.5em;
-    line-height: 2.5
+    padding-left: 1em;
+}
 
+.DescriptionWrapper {
+    float: right;
+    color: var(--green);
+}
+
+.ExpenseDescription {
+    padding-right: 1em;
+}
+
+.actionBar {
+    background-color: var(--lgreen);
+}
+
+.UIAction {
+    margin: auto;
 }

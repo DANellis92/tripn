@@ -2,13 +2,12 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Trip } from "./models/trip.models";
 import { Observable } from "rxjs";
-import { APIURL } from "../environments/environment.prod";
 
 @Injectable({
   providedIn: "root"
 })
 export class TripService {
-  private dbUrl = APIURL;
+  private dbUrl = "https://tripn-server.herokuapp.com/";
 
   constructor(private http: HttpClient) {}
 
@@ -19,7 +18,7 @@ export class TripService {
         Authorization: sessionStorage.getItem("sessionToken")
       })
     };
-    return this.http.get(this.dbUrl + "/trips/mytrips/", httpOptions);
+    return this.http.get(this.dbUrl + "trips/mytrips/", httpOptions);
   }
 
   getSingleTrip(userId, tripId, sessionToken): Observable<any> {
@@ -29,7 +28,7 @@ export class TripService {
         Authorization: sessionStorage.getItem("sessionToken")
       })
     };
-    return this.http.get(this.dbUrl + "/trips/thistrip/" + tripId, httpOptions);
+    return this.http.get(this.dbUrl + "trips/thistrip/" + tripId, httpOptions);
   }
 
   createTrip(trip: Trip, sessionToken): Observable<any> {
@@ -40,7 +39,7 @@ export class TripService {
       })
     };
     return this.http.post<any>(
-      this.dbUrl + "/trips/create",
+      this.dbUrl + "trips/create",
       { trip: trip },
       httpOptions
     );
@@ -54,7 +53,7 @@ export class TripService {
       })
     };
     return this.http.put<any>(
-      this.dbUrl + "/trips/edit/" + tripId,
+      this.dbUrl + "trips/edit/" + tripId,
       { trip: trip },
       httpOptions
     );
@@ -67,9 +66,6 @@ export class TripService {
         Authorization: sessionStorage.getItem("sessionToken")
       })
     };
-    return this.http.delete(
-      this.dbUrl + "/trips/deletetrip/" + id,
-      httpOptions
-    );
+    return this.http.delete(this.dbUrl + "trips/deletetrip/" + id, httpOptions);
   }
 }

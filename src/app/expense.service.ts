@@ -2,13 +2,12 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Expense } from "./models/expense.models";
 import { Observable } from "rxjs";
-import { APIURL } from "../environments/environment.prod";
 
 @Injectable({
   providedIn: "root"
 })
 export class ExpenseService {
-  private dbUrl = APIURL;
+  private dbUrl = "https://tripn-server.herokuapp.com/";
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +19,7 @@ export class ExpenseService {
       })
     };
     return this.http.get(
-      this.dbUrl + "/expenses/tripexpenses/" + tripId + "/" + userId,
+      this.dbUrl + "expenses/tripexpenses/" + tripId + "/" + userId,
       httpOptions
     );
   }
@@ -35,7 +34,7 @@ export class ExpenseService {
       })
     };
     return this.http.post<any>(
-      this.dbUrl + "/expenses/createExpense/" + tripId,
+      this.dbUrl + "expenses/createExpense/" + tripId,
       { expenses: expenses },
       httpOptions
     );
@@ -54,7 +53,7 @@ export class ExpenseService {
       })
     };
     return this.http.put<any>(
-      this.dbUrl + "/expenses/edit/" + tripId + "/" + expenseId,
+      this.dbUrl + "expenses/edit/" + tripId + "/" + expenseId,
       { expenses: expenses },
       httpOptions
     );
@@ -68,7 +67,7 @@ export class ExpenseService {
       })
     };
     return this.http.delete<any>(
-      this.dbUrl + "/expenses/delete/" + tripId + "/" + id,
+      this.dbUrl + "expenses/delete/" + tripId + "/" + id,
       httpOptions
     );
   }

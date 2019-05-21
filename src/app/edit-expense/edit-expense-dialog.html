@@ -1,16 +1,16 @@
 <div class="EditExpenseWrapper">
   <div class="CloseButtonWrapper">
-    <button class="ButtonClass" mat-dialog-close>
-      <i class="material-icons CloseButton">close</i>
+    <button mat-icon-button class="ButtonClass" mat-dialog-close>
+      <mat-icon class="CloseButton">close</mat-icon>
     </button>
   </div>
 
   <div class="EditExpenseHeader">
-    <h1 class="EditExpenseTitle" mat-dialog-title>Edit an Expense</h1>
+    <h1 class="EditExpenseTitle Header30" mat-dialog-title>Edit Expense</h1>
   </div>
 
   <mat-dialog-content class="DialogContent">
-    <form [formGroup]="editExpense" (submit)="onEditExpense(id)">
+    <form [formGroup]="editExpense" (submit)="onEditExpense()">
       <mat-form-field class="ParentField Placeholder10" appearance="standard">
         <input
           class="InputField"
