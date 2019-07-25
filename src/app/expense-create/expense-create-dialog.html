@@ -1,36 +1,67 @@
 <div class="MasterDiv">
-    <div class="CloseButtonWrapper">
-        <button class="Button" mat-dialog-close>
-            <i class="material-icons CloseButton">close</i>
-        </button>
-    </div>
-    <div class="HeaderDiv">
-        <h1 class="Header Header30" mat-dialog-title>Log Expense</h1>
-    </div>
-    <mat-dialog-content class="DialogContent">
-        <form class="BottomDiv" [formGroup]="expenseCreate" (submit)="onCreateExpense()">
+  <div class="CloseButtonWrapper">
+    <button mat-icon-button class="Button" mat-dialog-close>
+      <mat-icon class="CloseButton">close</mat-icon>
+    </button>
+  </div>
+  <div class="HeaderDiv">
+    <h1 class="Header Header30" mat-dialog-title>Log Expense</h1>
+  </div>
+  <mat-dialog-content class="DialogContent">
+    <form
+      class="BottomDiv"
+      [formGroup]="expenseCreate"
+      (submit)="onCreateExpense()"
+    >
+      <mat-form-field class="Placeholder10 ParentField" appearance="standard">
+        <input
+          class="InputField"
+          matInput
+          placeholder="mm/dd/yyyy"
+          formControlName="date"
+          required
+        />
+        <div id="TitleID" class="TitleBox Button20" matPrefix>Date</div>
+        <mat-error *ngIf="date.invalid">{{ getExpensedateError() }}</mat-error>
+      </mat-form-field>
 
-            <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-                <input class="InputField" matInput placeholder="mm/dd/yyyy" formControlName="date" required>
-                <div id="TitleID" class="TitleBox Button20" matPrefix>Date</div>
-                <mat-error *ngIf="date.invalid">{{ getExpensedateError() }}</mat-error>
-            </mat-form-field>
+      <mat-form-field class="Placeholder10 ParentField" appearance="standard">
+        <input
+          class="InputField"
+          matInput
+          placeholder="description"
+          formControlName="description"
+          required
+        />
+        <div id="TitleID" class="TitleBox Button20" matPrefix>Comment</div>
+        <mat-error *ngIf="description.invalid">{{
+          getExpensedescriptionError()
+        }}</mat-error>
+      </mat-form-field>
 
-            <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-                <input class="InputField" matInput placeholder="description" formControlName="description" required>
-                <div id="TitleID" class="TitleBox Button20" matPrefix>Comment</div>
-                <mat-error *ngIf="description.invalid">{{ getExpensedescriptionError() }}</mat-error>
-            </mat-form-field>
+      <mat-form-field class="Placeholder10 ParentField" appearance="standard">
+        <input
+          class="InputField"
+          matInput
+          placeholder="amount"
+          formControlName="amount"
+          required
+        />
+        <div id="TitleID" class="TitleBox Button20" matPrefix>Amount</div>
+        <mat-error *ngIf="amount.invalid">{{
+          getExpenseamountError()
+        }}</mat-error>
+      </mat-form-field>
 
-            <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-                <input class="InputField" matInput placeholder="amount" formControlName="amount" required>
-                <div id="TitleID" class="TitleBox Button20" matPrefix>Amount</div>
-                <mat-error *ngIf="amount.invalid">{{ getExpenseamountError() }}</mat-error>
-            </mat-form-field>
-
-            <button class="CreateFooterButton Button20" mat-flat-button color="primary" cdkFocusInitial type="submit">Submit</button>
-
-        </form>
-    </mat-dialog-content>
+      <button
+        class="CreateFooterButton Button20"
+        mat-flat-button
+        color="primary"
+        cdkFocusInitial
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-dialog-content>
 </div>
-

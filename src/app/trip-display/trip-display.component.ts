@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Inject, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  Inject,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { TripService } from "../trip.service";
 
@@ -8,12 +15,12 @@ import { TripService } from "../trip.service";
   styleUrls: ["./trip-display.component.css"]
 })
 export class TripDisplayComponent implements OnInit {
-  @Input("trip") trip: Object;
+  @Input("trip") trip: any;
   @Output() refreshed = new EventEmitter<any>();
 
   refreshTrips() {
     this.refreshed.emit();
-    console.log('Display calls refreshTrips()')
+    console.log("Display calls refreshTrips()");
   }
 
   constructor(public dialog: MatDialog) {}
@@ -27,7 +34,7 @@ export class TripDisplayComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-    this.refreshTrips();
+      this.refreshTrips();
     });
   }
 
@@ -35,9 +42,9 @@ export class TripDisplayComponent implements OnInit {
 }
 
 @Component({
-  selector: 'trip-display-dialog',
-  templateUrl: 'trip-display-dialog.html',
-  styleUrls: ['./trip-display.component.css']
+  selector: "trip-display-dialog",
+  templateUrl: "trip-display-dialog.html",
+  styleUrls: ["./trip-display.component.css"]
 })
 export class TripDisplayDialog {
   userId: any;
@@ -45,7 +52,7 @@ export class TripDisplayDialog {
 
   onEdit() {
     this.fetchSingleTrip();
-    console.log('received event');
+    console.log("received event");
   }
 
   constructor(
@@ -58,10 +65,12 @@ export class TripDisplayDialog {
   selectedTrip = this.trip;
 
   fetchSingleTrip() {
-    this.tripService.getSingleTrip(this.userId, this.data.id, this.sessionToken).subscribe(data => {
-      this.data = data
-      console.log(this.data);
-    })
+    this.tripService
+      .getSingleTrip(this.userId, this.data.id, this.sessionToken)
+      .subscribe(data => {
+        this.data = data;
+        console.log(this.data);
+      });
   }
 
   ngOnInit() {

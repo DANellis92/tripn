@@ -1,7 +1,7 @@
 <div class="CreateWrapper">
   <div class="CloseButtonWrapper">
-    <button class="EatADick" mat-dialog-close>
-      <i class="material-icons CloseButton">close</i>
+    <button mat-icon-button class="EatADick" mat-dialog-close>
+      <mat-icon class="CloseButton">close</mat-icon>
     </button>
   </div>
   <div class="HeaderWrapper" mat-dialog-title>
@@ -10,32 +10,64 @@
   <mat-dialog-content class="DialogContent">
     <form [formGroup]="tripCreate" (submit)="onCreateTrip()">
       <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-        <input class="InputField" matInput placeholder="trip name" formControlName="tripName" required />
+        <input
+          class="InputField"
+          matInput
+          placeholder="trip name"
+          formControlName="tripName"
+          required
+        />
         <div id="TitleID" class="TitleBox Button20" matPrefix>Title</div>
         <mat-error *ngIf="tripName.invalid">{{ getTripnameError() }}</mat-error>
       </mat-form-field>
-      
+
       <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-        <input class="InputField" matInput type="date" placeholder="mm/dd/yyyy" formControlName="startDate" required />
+        <input
+          class="InputField"
+          matInput
+          type="date"
+          placeholder="mm/dd/yyyy"
+          formControlName="startDate"
+          required
+        />
         <div id="TitleID" class="TitleBox Button20" matPrefix>Start</div>
-        <mat-error *ngIf="startDate.invalid">{{ getStartdateError() }}</mat-error>
+        <mat-error *ngIf="startDate.invalid">{{
+          getStartdateError()
+        }}</mat-error>
       </mat-form-field>
-      
+
       <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-        <input class="InputField" matInput type="date" placeholder="mm/dd/yyyy" formControlName="endDate" />
+        <input
+          class="InputField"
+          matInput
+          type="date"
+          placeholder="mm/dd/yyyy"
+          formControlName="endDate"
+        />
         <div id="TitleID" class="TitleBox Button20" matPrefix>End</div>
       </mat-form-field>
-      
+
       <mat-form-field class="Placeholder10 ParentField" appearance="standard">
-        <input class="InputField" matInput placeholder="distance in miles" formControlName="distance" required />
+        <input
+          class="InputField"
+          matInput
+          placeholder="distance in miles"
+          formControlName="distance"
+          required
+        />
         <div id="TitleID" class="TitleBox Button20" matPrefix>Miles</div>
         <mat-error *ngIf="distance.invalid">{{ getMilesError() }}</mat-error>
       </mat-form-field>
-      
-      <button class="CreateFooterButton Button20" mat-flat-button color="primary" cdkFocusInitial type="submit">
+
+      <button
+        class="CreateFooterButton Button20"
+        mat-flat-button
+        color="primary"
+        cdkFocusInitial
+        type="submit"
+      >
         Submit
       </button>
-
     </form>
   </mat-dialog-content>
 </div>

@@ -26,13 +26,12 @@ export class TripService {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("sessionToken")
-      })}
-    return this.http.get(
-      this.dbUrl+"trips/thistrip/"+tripId, httpOptions
-    );
+      })
+    };
+    return this.http.get(this.dbUrl + "trips/thistrip/" + tripId, httpOptions);
   }
 
-  createTrip(trip: Trip, sessionToken) : Observable<any> {
+  createTrip(trip: Trip, sessionToken): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
@@ -67,9 +66,6 @@ export class TripService {
         Authorization: sessionStorage.getItem("sessionToken")
       })
     };
-    return this.http.delete(
-      "https://tripn-server.herokuapp.com/trips/deletetrip/" + id,
-      httpOptions
-    );
+    return this.http.delete(this.dbUrl + "trips/deletetrip/" + id, httpOptions);
   }
 }

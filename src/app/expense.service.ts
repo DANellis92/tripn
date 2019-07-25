@@ -40,7 +40,12 @@ export class ExpenseService {
     );
   }
 
-  updateExpense(expenses: Expense, sessionToken, tripId, expenseId) : Observable<any> {
+  updateExpense(
+    expenses: Expense,
+    sessionToken,
+    tripId,
+    expenseId
+  ): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
@@ -62,7 +67,7 @@ export class ExpenseService {
       })
     };
     return this.http.delete<any>(
-      "https://tripn-server.herokuapp.com/expenses/delete/" + tripId + "/" + id,
+      this.dbUrl + "expenses/delete/" + tripId + "/" + id,
       httpOptions
     );
   }

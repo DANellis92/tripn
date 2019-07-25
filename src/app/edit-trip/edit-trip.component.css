@@ -91,8 +91,8 @@
         
     border-radius: 50%;
     background-color: var(--green);
-    width: 4.5em;
-    height: 4.5em;
+    width: 3em;
+    height: 3em;
     
     }
 .EditTripButton {
@@ -101,7 +101,7 @@
     margin:auto;
     color: var(--white);
     text-align: center;
-    top: .9em;
-    left: .1em;
+    top: .3em;
+    left: .2em;
         
         }

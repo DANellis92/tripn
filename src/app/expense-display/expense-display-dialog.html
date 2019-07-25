@@ -1,47 +1,59 @@
 <div class="ExpenseOverallWrapper">
-    <div mat-dialog-title class="ExpenseModalHeader">
-        <button class="CloseButton" mat-dialog-close>
-            <i class="material-icons Close">close</i>
-        </button>
+  <div mat-dialog-title class="ExpenseModalHeader">
+    <button mat-icon-button class="CloseButton" mat-dialog-close>
+      <mat-icon class="Close">close</mat-icon>
+    </button>
 
-        <h1 class="TripName Header30">{{data.tripName}}</h1>
-        <h3 class="ExpensesTitle Button20">Expenses</h3>
-    </div>
-    <mat-dialog-content class="ExpenseModalContent">
-        <div class="ExpenseSectionWrapper" *ngIf="expenses">
-            <div class="ExpenseMainWrapper" *ngFor="let expense of expenses">
-                <div class="IndividualWrapper">
-                    <div class="ExpenseHeader">
-                        <div class="HeaderTitle">
-                            <p class="Body20 ExpenseDate">{{expense.date}}</p>
-                        </div>
-                        <div class="HeaderUI">
-                            <div class="iconUI1">
-                                <app-edit-expense [expenses]="expenses" (editRefreshed)="onEdit()"></app-edit-expense>
-                            </div>
-                            <div class="iconUI2">
-                                <button class="icon-btn" (click)="deleteExpense(expense)" mat-icon-button>
-                                    <mat-icon class="icon-btn">delete</mat-icon>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ExpenseContent">
-                        <div class="AmountWrapper">
-                            <div class="Body20 ExpenseAmount">${{expense.amount}}</div>
-                        </div>
-                        <div class="DescriptionWrapper">
-                            <div class="Body10 ExpenseDescription">{{expense.description}}</div>
-                        </div>
-                    </div>
-                </div>
+    <h1 class="TripName Header30">{{ data.tripName }}</h1>
+    <h3 class="ExpensesTitle Button20">Expenses</h3>
+  </div>
+  <mat-dialog-content class="ExpenseModalContent">
+    <div class="ExpenseSectionWrapper" *ngIf="expenses">
+      <div class="ExpenseMainWrapper" *ngFor="let expense of expenses">
+        <div class="IndividualWrapper">
+          <div class="ExpenseHeader">
+            <div class="HeaderTitle">
+              <p class="Body20 ExpenseDate">{{ expense.date }}</p>
             </div>
+            <div class="HeaderUI">
+              <div class="iconUI1">
+                <app-edit-expense
+                  [expenses]="expenses"
+                  (editRefreshed)="onEdit()"
+                ></app-edit-expense>
+              </div>
+              <div class="iconUI2">
+                <button
+                  class="icon-btn"
+                  (click)="deleteExpense(expense)"
+                  mat-icon-button
+                >
+                  <mat-icon class="icon-btn">delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="ExpenseContent">
+            <div class="AmountWrapper">
+              <div class="Body20 ExpenseAmount">${{ expense.amount }}</div>
+            </div>
+            <div class="DescriptionWrapper">
+              <div class="Body10 ExpenseDescription">
+                {{ expense.description }}
+              </div>
+            </div>
+          </div>
         </div>
-    </mat-dialog-content>
+      </div>
+    </div>
+  </mat-dialog-content>
 
-    <mat-dialog-actions class="actionBar">
-        <div class="UIAction">
-            <app-expense-create [trip]="data" (refreshed)="onEdit()"></app-expense-create>
-        </div>
-    </mat-dialog-actions>
+  <mat-dialog-actions class="actionBar">
+    <div class="UIAction">
+      <app-expense-create
+        [trip]="data"
+        (refreshed)="onEdit()"
+      ></app-expense-create>
+    </div>
+  </mat-dialog-actions>
 </div>
